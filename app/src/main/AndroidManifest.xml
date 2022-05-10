@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ficha_project">
+    package="com.example.ficha_project" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,29 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ficha_Project">
+        android:theme="@style/Theme.Ficha_Project" >
+        <activity
+            android:name=".destino"
+            android:exported="false" />
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAUsVUUCaUT1UXm6YPNhORU42v9fxH45lA" />
+
+        <activity
+            android:name=".google_maps_api"
+            android:exported="false"
+            android:label="@string/title_activity_google_maps_api" />
         <activity
             android:name=".Perfil"
             android:exported="false" />
@@ -19,7 +41,7 @@
             android:theme="@style/Theme.Ficha_Project.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

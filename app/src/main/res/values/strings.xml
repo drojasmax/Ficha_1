@@ -10,7 +10,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-// Strings - Luis
+    // Strings - Luis
     <string name="miperfil">Mi Perfil</string>
     <string name="editarfoto">Editar foto de perfil</string>
     <string name="nombre">Nombre</string>
