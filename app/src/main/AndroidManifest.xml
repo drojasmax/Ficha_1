@@ -11,7 +11,13 @@
         android:theme="@style/Theme.Ficha_Project" >
         <activity
             android:name=".destino"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -39,15 +45,11 @@
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Ficha_Project.NoActionBar" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
