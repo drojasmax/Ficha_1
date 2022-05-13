@@ -21,8 +21,16 @@
     <string name="misdisp">Mis dispositivos</string>
     <string name="cerrarsesion">Cerrar sesion</string>
     <string name="eliminarcuenta">Eliminar cuenta</string>
+    // Strings - Duvan
     <string name="title_activity_google_maps_api">google_maps_api</string>
     <string name="btnDireccion">¿Dónde se dirige?</string>
-
-
+    <string name="btnCasa">Casa</string>
+    <string name="btnTrabajo">Trabajo</string>
+    <string name="btnLugares">Lugares</string>
+    <string name="ubiActual">Ubicación actual</string>
+    <string name="btnUbiActual">Selecciona tu ubicación actual</string>
+    <string name="ubiDestino">Ubicación destino</string>
+    <string name="btnUbiDestino">Selecciona tu ubicación destino</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Clase navigation drawer</string>
 </resources>
