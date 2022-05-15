@@ -21,6 +21,19 @@
     <string name="misdisp">Mis dispositivos</string>
     <string name="cerrarsesion">Cerrar sesion</string>
     <string name="eliminarcuenta">Eliminar cuenta</string>
+    <string name="vamosrecorrido">Vamos a por ese recorrido</string>
+    <string name="ingresacelular">+56 Ingresa tu celular</string>
+    <string name="btnSiguiente">Siguiente</string>
+    <string name="rellenatuperfil">Rellena tu Perfil</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="pasajero">Pasajero</string>
+    <string name="conductor">Conductor</string>
+    <string name="ficha">Ficha</string>
+    <string name="iniciarsesion">Iniciar sesion</string>
+    <string name="notienescuenta">¿No tienes cuenta?</string>
+    <string name="registrate">Registrate</string>
+
     // Strings - Duvan
     <string name="title_activity_google_maps_api">google_maps_api</string>
     <string name="btnDireccion">¿Dónde se dirige?</string>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "979251763133",
+    "project_id": "ficha-fed58",
+    "storage_bucket": "ficha-fed58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979251763133:android:a5942682df744e4d4a24d4",
+        "android_client_info": {
+          "package_name": "com.example.ficha_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "979251763133-9u2vsv6ng1ilsqvlemm4mmrhq6jmkbhr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD19jH0VZhyPAwFuMj9LHa83Qneeofhclk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "979251763133-9u2vsv6ng1ilsqvlemm4mmrhq6jmkbhr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
