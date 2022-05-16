@@ -33,4 +33,10 @@
     <string name="btnUbiDestino">Selecciona tu ubicación destino</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Clase navigation drawer</string>
+    <string name="Viaje">Viaje</string>
+    <string name="btnConfirmarViaje">Confirmar Viaje</string>
+    <string name="pasajeros">Disponible:</string>
+    <string name="Efectivo">Efectivo</string>
+    <string name="Transferencia">Transferencia</string>
+    <string name="precio">Precio</string>
 </resources>

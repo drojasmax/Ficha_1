@@ -9,12 +9,17 @@
         <entry key="..\:/AndroidProjects/Ficha_1/app/src/main/res/layout/content_main.xml" value="0.34193840579710144" />
         <entry key="..\:/AndroidProjects/Ficha_1/app/src/main/res/layout/fragment_first.xml" value="0.34193840579710144" />
         <entry key="..\:/AndroidProjects/Ficha_1/app/src/main/res/layout/fragment_second.xml" value="0.34193840579710144" />
-        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_destino.xml" value="0.15806159420289856" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_destino.xml" value="0.22" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_info_conductor.xml" value="0.14221014492753623" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_info_pasajero.xml" value="0.19927536231884058" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_main.xml" value="0.13405797101449277" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_precioydisponibilidad.xml" value="0.12" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/haeder2.xml" value="0.22" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/header.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/toolbar.xml" value="0.1" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu3.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
