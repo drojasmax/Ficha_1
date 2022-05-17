@@ -54,9 +54,6 @@
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Ficha_Project.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

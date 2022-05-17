@@ -38,6 +38,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void login(View v){
+        System.out.println("Entre al login");
         EditText campo1 = this.findViewById(R.id.loginCorreo);
         String correo = campo1.getText().toString();
         EditText campo2 = this.findViewById(R.id.loginContrasenia);
@@ -52,7 +53,7 @@ public class Login extends AppCompatActivity {
                     System.out.println(p);
                     if(correo.equals(p.getCorreo()) && contrasenia.equals(p.getContrasenia())){
 
-                        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                        Intent i = new Intent(getApplicationContext(),destino.class);
                         Toast.makeText(Login.this, "Logeado como: "+p, Toast.LENGTH_SHORT).show();
                         //i.putExtra("idcliente",c.getId());
                         startActivity(i);}
@@ -76,7 +77,7 @@ public class Login extends AppCompatActivity {
                     System.out.println(c);
                     if(correo.equals(c.getCorreo()) && contrasenia.equals(c.getContrasenia())){
 
-                        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                        Intent i = new Intent(getApplicationContext(),destino.class);
                         Toast.makeText(Login.this, "Logeado como: "+c, Toast.LENGTH_SHORT).show();
                         //i.putExtra("idcliente",c.getId());
                         startActivity(i);}

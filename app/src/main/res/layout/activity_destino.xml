@@ -66,8 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
-            app:headerLayout="@layout/header"
-            app:menu="@menu/menu2" />
+            app:headerLayout="@layout/header" />
     </LinearLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>
