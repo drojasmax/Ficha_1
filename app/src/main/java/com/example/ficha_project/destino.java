@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -24,11 +28,7 @@ public class destino extends AppCompatActivity {
         //Referencia toolbar
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
-
-
-
-
-
+        //Incorporar menú inferior
         NavigationView nav = (NavigationView) findViewById(R.id.nav);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -50,7 +50,17 @@ public class destino extends AppCompatActivity {
         dl.addDrawerListener(toggle);
         toggle.syncState();
 
-
+        tb.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(dl.isDrawerOpen(GravityCompat.START)){
+                    dl.closeDrawer(GravityCompat.START);
+                }
+                else{
+                    dl.openDrawer((int) Gravity.START);
+                }
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -64,9 +74,9 @@ public class destino extends AppCompatActivity {
         int id = item.getItemId();
         if (id==R.id.opPerfil){
             Toast.makeText(this, "Perfil", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(getApplicationContext(),Perfil.class);
+            startActivity(i);
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 }
