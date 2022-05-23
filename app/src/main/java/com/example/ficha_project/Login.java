@@ -16,8 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import Modelo.Conductor;
-import Modelo.Pasajero;
+import Modelo.Cuenta;
 
 public class Login extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
@@ -44,56 +43,28 @@ public class Login extends AppCompatActivity {
         EditText campo2 = this.findViewById(R.id.loginContrasenia);
         String contrasenia = campo2.getText().toString();
 
-        databaseReference.child("Pasajero").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Cuenta").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 System.out.println("Imprimiendo ...");
                 for (DataSnapshot objeto: snapshot.getChildren()) {
-                    Pasajero p = objeto.getValue(Pasajero.class);
-                    System.out.println(p);
-                    if(correo.equals(p.getCorreo()) && contrasenia.equals(p.getContrasenia())){
-
+                    Cuenta cuenta = objeto.getValue(Cuenta.class);
+                    System.out.println(cuenta);
+                    if(correo.equals(cuenta.getCorreo()) && contrasenia.equals(cuenta.getContrasenia())){
                         Intent i = new Intent(getApplicationContext(),destino.class);
-                        Toast.makeText(Login.this, "Logeado como: "+p, Toast.LENGTH_SHORT).show();
-                        //i.putExtra("idcliente",c.getId());
+                        Toast.makeText(Login.this, "Sesion iniciada", Toast.LENGTH_SHORT).show();
                         startActivity(i);}
-                    else{
-                        Toast.makeText(Login.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
-                    }
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        databaseReference.child("Conductor").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                System.out.println("Imprimiendo ...");
-                for (DataSnapshot objeto: snapshot.getChildren()) {
-                    Conductor c = objeto.getValue(Conductor.class);
-                    System.out.println(c);
-                    if(correo.equals(c.getCorreo()) && contrasenia.equals(c.getContrasenia())){
-
-                        Intent i = new Intent(getApplicationContext(),destino.class);
-                        Toast.makeText(Login.this, "Logeado como: "+c, Toast.LENGTH_SHORT).show();
-                        //i.putExtra("idcliente",c.getId());
-                        startActivity(i);}
-                    else{
-                        Toast.makeText(Login.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
         }
+
+
     public void crearCuenta(View v){
 
         Intent i = new Intent(this,crearCuenta1.class);
