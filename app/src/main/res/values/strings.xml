@@ -52,6 +52,18 @@
     <string name="Efectivo">Efectivo</string>
     <string name="Transferencia">Transferencia</string>
     <string name="precio">Precio</string>
+    <string name="crear_Cuenta2">Imagen Japan</string>
+
+    // Strings - Diego
+    <string name="Ficha">Ficha</string>
+    <string name="editarApellido">Apellido</string>
+    <string name="editarNombre">Nombre</string>
+    <string name="imagen">TODO</string>
+    <string name="imagenPerro">TODO</string>
+    <string name="editarNumero">965275629</string>
+    <string name="estesej_gmail_com">estesej@gmail.com</string>
+    <string name="IconoPersona">icono Persona</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

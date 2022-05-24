@@ -7,25 +7,11 @@
     android:orientation="vertical"
     tools:context=".Login" >
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:contentDescription="TODO"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck" />
-
     <EditText
         android:id="@+id/loginCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="@string/correo"
@@ -35,7 +21,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/loginContrasenia"
@@ -47,10 +34,12 @@
         android:hint="@string/contrasenia"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/loginCorreo"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnIniciarSesion"
@@ -68,15 +57,16 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="24dp"
+        android:minHeight="48dp"
         android:onClick="crearCuenta"
         android:text="@string/registrate"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#0277BD"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
-        app:layout_constraintVertical_bias="0.449" />
+        app:layout_constraintVertical_bias="0.502" />
 
     <TextView
         android:id="@+id/textView16"
@@ -89,5 +79,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
         app:layout_constraintVertical_bias="0.449" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="@string/Ficha"
+        android:text="@string/Ficha"
+        android:textColor="#212121"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

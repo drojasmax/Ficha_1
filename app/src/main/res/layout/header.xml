@@ -29,7 +29,10 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="@string/btnUbiActual"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            android:autofillHints="" />
 
         <TextView
             android:id="@+id/textView12"
@@ -45,7 +48,10 @@
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="@string/btnUbiDestino"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            android:autofillHints="" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -61,21 +67,24 @@
                     android:id="@+id/button4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/btnCasa" />
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/btnCasa"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="@string/btnTrabajo" />
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/btnTrabajo"
+                    style="?android:attr/buttonBarButtonStyle" />
 
                 <Button
                     android:id="@+id/button7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/btnLugares" />
+                    android:text="@string/btnLugares"
+                    style="?android:attr/buttonBarButtonStyle" />
             </TableRow>
 
         </TableLayout>

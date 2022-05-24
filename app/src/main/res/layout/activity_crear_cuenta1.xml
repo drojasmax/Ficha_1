@@ -14,6 +14,7 @@
         android:layout_marginTop="35dp"
         android:gravity="center_horizontal"
         android:text="@string/vamosrecorrido"
+        android:textColor="#212121"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -25,7 +26,9 @@
         android:layout_marginTop="30dp"
         android:hint="@string/ingresacelular"
         android:inputType="phone"
-        android:textSize="20sp" />
+        android:textColorHint="#78909C"
+        android:textSize="20sp"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnCuenta1"
@@ -35,5 +38,14 @@
         android:layout_marginTop="15dp"
         android:onClick="capturarNumero"
         android:text="@string/btnSiguiente" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="false"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/dog_ga041b1a6b_1920"
+        android:contentDescription="@string/imagenPerro" />
 
 </LinearLayout>
