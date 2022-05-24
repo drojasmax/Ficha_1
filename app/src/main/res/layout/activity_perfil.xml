@@ -24,6 +24,7 @@
         android:layout_height="95dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:contentDescription="@string/IconoPersona"
         tools:srcCompat="@drawable/img_183066" />
 
     <TextView
@@ -34,18 +35,18 @@
         android:gravity="center"
         android:text="@string/editarfoto"
         android:textColor="@color/black"
-        android:textSize="22dp"
+        android:textSize="22sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="14dp"
         android:text="@string/nombre"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
@@ -54,18 +55,22 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:hint="@string/editarNombre"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="14dp"
         android:text="@string/apellido"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
@@ -74,8 +79,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:hint="@string/editarApellido"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,7 +95,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_weight="0.5"
             android:text="@string/numtel"
             android:textColor="@color/black"
@@ -96,15 +105,17 @@
             android:id="@+id/editTextNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_weight="0.5"
             android:ems="10"
             android:inputType="number"
-            android:text="965275629"
+            android:text="@string/editarNumero"
             android:textAlignment="center"
             android:textColor="@color/cardview_dark_background"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck"
+            android:autofillHints="" />
     </LinearLayout>
 
     <LinearLayout
@@ -117,7 +128,7 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_weight="0.5"
             android:text="@string/correo"
             android:textColor="@color/black"
@@ -127,16 +138,18 @@
             android:id="@+id/editTextTextEmailAddress2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
             android:layout_weight="0.5"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:shadowColor="@color/cardview_dark_background"
-            android:text="estesej@gmail.com"
+            android:text="@string/estesej_gmail_com"
             android:textAlignment="center"
             android:textColor="@color/cardview_dark_background"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck"
+            android:autofillHints="" />
 
     </LinearLayout>
 
@@ -144,7 +157,7 @@
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:shadowColor="@color/black"
         android:text="@string/cambiarclave"
@@ -155,7 +168,7 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:shadowColor="@color/black"
         android:text="@string/misdisp"
