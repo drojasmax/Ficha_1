@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ficha_Project">
         <activity
+            android:name=".prueba"
+            android:exported="false" />
+        <activity
             android:name=".crearCuenta2"
             android:exported="false" />
         <activity
