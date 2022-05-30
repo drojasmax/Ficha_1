@@ -69,7 +69,8 @@ public class prueba extends AppCompatActivity {
                 float baseAlpha = ResourcesCompat.getFloat(getResources(), com.google.android.material.R.dimen.material_emphasis_medium);
                 float offset = (slideOffset-(-1f))/(1f-(-1f))*(1f-0f)+0f;
                 float alpha = com.google.android.material.math.MathUtils.lerp(0f,255f,offset*baseAlpha);
-                int color = Color.argb(alpha,0,0,0);
+                int a = (int) alpha;
+                int color = Color.argb(a,0,0,0);
                 scrim.setBackgroundColor(color);
             }
         });
