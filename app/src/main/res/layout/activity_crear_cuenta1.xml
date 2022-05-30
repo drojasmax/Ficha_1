@@ -44,8 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="false"
+        android:contentDescription="@string/imagenPerro"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/dog_ga041b1a6b_1920"
-        android:contentDescription="@string/imagenPerro" />
+        app:srcCompat="@drawable/dog_ga041b1a6b_1920" />
 
 </LinearLayout>
