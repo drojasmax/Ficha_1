@@ -2,18 +2,14 @@ package com.example.ficha_project;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +22,6 @@ import com.google.android.material.navigation.NavigationView;
 
 public class destino extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +30,6 @@ public class destino extends AppCompatActivity {
         //Referencia toolbar
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
-        tb.inflateMenu(R.menu.menu);
-        tb.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Toast.makeText(destino.this, "hola", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
         /*DrawerLayout dl = (DrawerLayout) findViewById(R.id.principal);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -115,6 +102,8 @@ public class destino extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //Incoporar menú dentro de Activity
+        Toast.makeText(destino.this, "hola", Toast.LENGTH_SHORT).show();
+
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
