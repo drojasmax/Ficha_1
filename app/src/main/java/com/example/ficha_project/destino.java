@@ -35,16 +35,15 @@ public class destino extends AppCompatActivity {
         //Referencia toolbar
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
-        //Incorporar menú inferior
-        NavigationView nav = (NavigationView) findViewById(R.id.navi);
-        nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        tb.inflateMenu(R.menu.menu);
+        tb.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                //Recuperar opción del menú
-                return false;
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(destino.this, "hola", Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
-        DrawerLayout dl = (DrawerLayout) findViewById(R.id.principal);
+        /*DrawerLayout dl = (DrawerLayout) findViewById(R.id.principal);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -65,7 +64,7 @@ public class destino extends AppCompatActivity {
                     dl.openDrawer((int) Gravity.START);
                 }
             }
-        });
+        });*/
         //                              BOTTOM APP BAR (MENÚ INFERIOR)
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.navi));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -77,8 +76,6 @@ public class destino extends AppCompatActivity {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
-
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.navi);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -89,7 +86,6 @@ public class destino extends AppCompatActivity {
                 return true;
             }
         });
-
         FrameLayout scrim = (FrameLayout) findViewById(R.id.scrim);
         scrim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,13 +93,11 @@ public class destino extends AppCompatActivity {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
-
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
 
             }
-
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
