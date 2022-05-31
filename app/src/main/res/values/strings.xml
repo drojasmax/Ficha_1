@@ -63,6 +63,14 @@
     <string name="editarNumero">965275629</string>
     <string name="estesej_gmail_com">estesej@gmail.com</string>
     <string name="IconoPersona">icono Persona</string>
+    <string name="Subirdocumentos">Falta que subas un par de documentos a la aplicacion</string>
+    <string name="Verificacion">La verificacion de documentos podria durar alrededor de 24 a 72 horas. Agradecemos tu paciencia y comprension.</string>
+    <string name="CelFrente">Celula de Identidad (Frente)</string>
+    <string name="CelAtras">Celula de Identidad (Reverso)</string>
+    <string name="Licencia">Licencia de Conducir Chilena</string>
+    <string name="AntecedentesPenales">Certificado de Antecedentes Penales</string>
+    <string name="Permiso">Permiso de Circulación</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
