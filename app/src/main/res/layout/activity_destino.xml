@@ -34,7 +34,7 @@
                 <FrameLayout
                     android:id="@+id/scrim"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                 </FrameLayout>
 
@@ -55,8 +55,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                app:navigationIcon="@drawable/ic_baseline_menu_24"
-                />
+                android:backgroundTint="#757272"
+                android:gravity="center"
+                app:fabAlignmentMode="center"
+                app:navigationIcon="@drawable/ic_action_name" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </FrameLayout>
 
