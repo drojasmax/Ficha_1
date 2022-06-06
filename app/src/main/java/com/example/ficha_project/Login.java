@@ -53,6 +53,8 @@ public class Login extends AppCompatActivity {
                     if(correo.equals(cuenta.getCorreo()) && contrasenia.equals(cuenta.getContrasenia())){
                         Intent i = new Intent(getApplicationContext(),destino.class);
                         Toast.makeText(Login.this, "Sesion iniciada", Toast.LENGTH_SHORT).show();
+                        i.putExtra("idusuario",cuenta.getIdusuario());
+                        i.putExtra("correo",cuenta.getCorreo());
                         startActivity(i);}
                 }
             }
