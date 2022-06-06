@@ -5,11 +5,18 @@ public class Pasajero {
     private String id;
     private String nombre;
     private String apellido;
-    private String correo;
-    private String contrasenia;
     private String numero;
+    private String genero;
 
     public Pasajero() {
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getId() {
@@ -36,22 +43,6 @@ public class Pasajero {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
     public String getNumero() {
         return numero;
     }
@@ -66,8 +57,6 @@ public class Pasajero {
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", correo='" + correo + '\'' +
-                ", contrasenia='" + contrasenia + '\'' +
                 ", numero='" + numero + '\'' +
                 '}';
     }

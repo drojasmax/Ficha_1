@@ -2,6 +2,7 @@ package com.example.ficha_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.UUID;
 
 import Modelo.Conductor;
+import Modelo.Cuenta;
 import Modelo.Pasajero;
 
 public class crearCuenta2 extends AppCompatActivity {
@@ -37,7 +39,7 @@ public class crearCuenta2 extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    public void registrarPasajero(View v){
+    public void registrarCuenta(View v){
         textNombre = (EditText) findViewById(R.id.textNombre);
         textApellido = (EditText) findViewById(R.id.textApellido);
         textCorreo = (EditText) findViewById(R.id.textCorreo);
@@ -69,30 +71,41 @@ public class crearCuenta2 extends AppCompatActivity {
                 Toast.makeText(this, "Error en la seccion Usuario", Toast.LENGTH_SHORT).show();
         }
 
-        String id = UUID.randomUUID().toString();
+        String idusuario = UUID.randomUUID().toString();
+        String idcuenta = UUID.randomUUID().toString();
 
+        Cuenta cuenta = new Cuenta();
+        //Creacion cuenta
+        cuenta.setId(idcuenta);
+        cuenta.setCorreo(correo);
+        cuenta.setContrasenia(contrasenia);
 
         if(usuario.equals("Pasajero")){
-          Pasajero p = new Pasajero();
-          p.setId(id);
-          p.setNombre(nombre);
-          p.setApellido(apellido);
-          p.setCorreo(correo);
-          p.setContrasenia(contrasenia);
-          p.setNumero(numero);
 
-          databaseReference.child("Pasajero").child(id).setValue(p);
+            //Creacion pasajero
+            Pasajero p = new Pasajero();
+            p.setId(idusuario);
+            p.setNombre(nombre);
+            p.setApellido(apellido);
+            p.setNumero(numero);
+
+            cuenta.setIdusuario(idusuario);
+
+            databaseReference.child("Pasajero").child(idusuario).setValue(p);
+            databaseReference.child("Cuenta").child(idcuenta).setValue(cuenta);
+
         }
         else if(usuario.equals("Conductor")){
             Conductor c = new Conductor();
-            c.setId(id);
+            c.setId(idusuario);
             c.setNombre(nombre);
             c.setApellido(apellido);
-            c.setCorreo(correo);
-            c.setContrasenia(contrasenia);
             c.setNumero(numero);
 
-            databaseReference.child("Conductor").child(id).setValue(c);
+            cuenta.setIdusuario(idusuario);
+
+            databaseReference.child("Conductor").child(idusuario).setValue(c);
+            databaseReference.child("Cuenta").child(idcuenta).setValue(cuenta);
         }
     }
 }

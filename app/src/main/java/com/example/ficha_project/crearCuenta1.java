@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class crearCuenta1 extends AppCompatActivity {
 
@@ -23,8 +24,13 @@ public class crearCuenta1 extends AppCompatActivity {
     public void capturarNumero(View v){
         EditText campoNumero = this.findViewById(R.id.textPhone);
         String numero = campoNumero.getText().toString();
-        Intent i = new Intent(getApplicationContext(),crearCuenta2.class);
-        i.putExtra("numero", numero);
-        startActivity(i);
+        if(!numero.equals("")){
+            Intent i = new Intent(getApplicationContext(),crearCuenta2.class);
+            i.putExtra("numero", numero);
+            startActivity(i);
+        }else{
+            Toast.makeText(this, "Ingresa un numero Crack", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
