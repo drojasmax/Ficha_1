@@ -50,7 +50,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/etNombreperfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -74,7 +74,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/etApellidoperfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
@@ -102,20 +102,19 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/etNumeroperfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_weight="0.5"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="number"
-            android:text="@string/editarNumero"
             android:textAlignment="center"
             android:textColor="@color/cardview_dark_background"
             android:textSize="14sp"
             android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck"
-            android:autofillHints="" />
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -135,21 +134,20 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress2"
+            android:id="@+id/etCorreoperfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:layout_weight="0.5"
+            android:autofillHints=""
             android:ems="10"
             android:inputType="textEmailAddress"
             android:shadowColor="@color/cardview_dark_background"
-            android:text="@string/estesej_gmail_com"
             android:textAlignment="center"
             android:textColor="@color/cardview_dark_background"
             android:textSize="14sp"
             android:textStyle="bold"
-            tools:ignore="TouchTargetSizeCheck"
-            android:autofillHints="" />
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 

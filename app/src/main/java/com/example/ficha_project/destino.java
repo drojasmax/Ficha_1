@@ -113,6 +113,15 @@ public class destino extends AppCompatActivity {
         if (id==R.id.opPerfil){
             Toast.makeText(this, "Perfil", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(getApplicationContext(),Perfil.class);
+            Bundle paquete = getIntent().getExtras();
+            String idusuario = null;
+            String correo = null;
+            if(paquete != null){
+                idusuario = paquete.getString("idusuario");
+                correo = paquete.getString("correo");
+            }
+            i.putExtra("idusuario",idusuario);
+            i.putExtra("correo",correo);
             startActivity(i);
         }
         return super.onOptionsItemSelected(item);
