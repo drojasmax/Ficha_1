@@ -4,15 +4,22 @@ public class Conductor {
     private String id;
     private String nombre;
     private String apellido;
-    private String correo;
-    private String contrasenia;
     private String numero;
+    private String genero;
 
     public Conductor() {
     }
 
     public String getId() {
         return id;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public void setId(String id) {
@@ -35,22 +42,6 @@ public class Conductor {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
     public String getNumero() {
         return numero;
     }
@@ -65,8 +56,6 @@ public class Conductor {
                 "id='" + id + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", correo='" + correo + '\'' +
-                ", contrasenia='" + contrasenia + '\'' +
                 ", numero='" + numero + '\'' +
                 '}';
     }
