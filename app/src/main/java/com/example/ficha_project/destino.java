@@ -16,16 +16,32 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class destino extends AppCompatActivity {
+
+    private static int FROM_REQUEST_CODE = 1;
+    private static int TO_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destino);
+        //                              PLACES API
+        Places.initialize(getApplicationContext(), getString(R.string.googleAPIKEY));
+
+
+
+
         //                              TOOLBAR
         //Referencia toolbar
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
@@ -52,6 +68,10 @@ public class destino extends AppCompatActivity {
                 }
             }
         });*/
+
+
+
+
         //                              BOTTOM APP BAR (MENÚ INFERIOR)
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.navi));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -98,6 +118,19 @@ public class destino extends AppCompatActivity {
                 scrim.setBackgroundColor(color);
             }
         });
+    }
+    private fun autocompleteForm(){
+        // Set the fields to specify which types of place data to
+        // return after the user has made a selection.
+        List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
+
+        // Start the autocomplete intent.
+        Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
+                .build(this);
+        startActivityForResult(intent, FROM_REQUEST_CODE);
+    }
+    private fun autocompletoTo(){
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
