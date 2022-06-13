@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -29,8 +30,8 @@ import java.util.List;
 
 public class destino extends AppCompatActivity {
 
-    private static int FROM_REQUEST_CODE = 1;
-    private static int TO_REQUEST_CODE = 1;
+    private static int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
+    private static int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +39,6 @@ public class destino extends AppCompatActivity {
         setContentView(R.layout.activity_destino);
         //                              PLACES API
         Places.initialize(getApplicationContext(), getString(R.string.googleAPIKEY));
-
-
-
-
         //                              TOOLBAR
         //Referencia toolbar
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
@@ -68,11 +65,7 @@ public class destino extends AppCompatActivity {
                 }
             }
         });*/
-
-
-
-
-        //                              BOTTOM APP BAR (MENÚ INFERIOR)
+        //                       BOTTOM APP BAR (MENÚ INFERIOR)
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.navi));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
@@ -81,6 +74,7 @@ public class destino extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+
             }
         });
         NavigationView navigationView = (NavigationView) findViewById(R.id.navi);
@@ -91,6 +85,21 @@ public class destino extends AppCompatActivity {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
                 return true;
+            }
+        });
+        //                            BOTONES PLACES SDK
+        Button btnFrom = (Button) navigationView.getHeaderView(0).findViewById(R.id.btnFrom);
+        btnFrom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_FROM);
+            }
+        });
+        Button btnTo = (Button) navigationView.getHeaderView(0).findViewById(R.id.btnTo);
+        btnTo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
             }
         });
         FrameLayout scrim = (FrameLayout) findViewById(R.id.scrim);
@@ -119,24 +128,20 @@ public class destino extends AppCompatActivity {
             }
         });
     }
-    private fun autocompleteForm(){
-        // Set the fields to specify which types of place data to
-        // return after the user has made a selection.
+    //                                  METODOS PLACES SDK
+    private void startAutocomplete(int requestCode){
+        // Fields of place data to return after the user has made a selection
         List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
 
         // Start the autocomplete intent.
         Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
                 .build(this);
-        startActivityForResult(intent, FROM_REQUEST_CODE);
-    }
-    private fun autocompletoTo(){
 
+        startActivityForResult(intent, requestCode);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //Incoporar menú dentro de Activity
-        Toast.makeText(destino.this, "hola", Toast.LENGTH_SHORT).show();
-
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
