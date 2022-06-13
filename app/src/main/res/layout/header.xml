@@ -23,7 +23,7 @@
             android:text="@string/ubiActual" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnFrom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnSeleccionarUbicacion" />
@@ -36,7 +36,7 @@
             android:text="@string/ubiDestino" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnTo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btnSeleccionarUbicacion" />
