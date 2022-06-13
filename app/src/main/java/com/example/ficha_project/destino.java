@@ -1,6 +1,7 @@
 package com.example.ficha_project;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,9 +19,11 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.Status;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -32,7 +36,7 @@ public class destino extends AppCompatActivity {
 
     private static int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
     private static int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
-
+    private static String TAG="destino.java";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +106,7 @@ public class destino extends AppCompatActivity {
                 startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
             }
         });
+        //                         BOTTOM APP BAR (MENÚ INFERIOR)
         FrameLayout scrim = (FrameLayout) findViewById(R.id.scrim);
         scrim.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +144,26 @@ public class destino extends AppCompatActivity {
 
         startActivityForResult(intent, requestCode);
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == REQUEST_CODE_AUTOCOMPLETE_FROM) {
+            if (resultCode == RESULT_OK) {
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                Log.i(TAG, "Place Name & Id: " + place.getName() + ", " + place.getId());
+
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+                Log.i(TAG, status.getStatusMessage());
+            } else if (resultCode == RESULT_CANCELED) {
+                // The user canceled the operation.
+            }
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    //                                  MÉTODOS TOOLBAR
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //Incoporar menú dentro de Activity

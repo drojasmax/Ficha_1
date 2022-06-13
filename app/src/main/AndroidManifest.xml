@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ficha_Project">
         <activity
-            android:name=".destino_places"
-            android:exported="false" />
-        <activity
             android:name=".destino"
             android:exported="false" />
         <activity
