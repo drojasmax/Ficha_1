@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
@@ -36,7 +37,7 @@ public class destino extends AppCompatActivity {
 
     private static int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
     private static int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
-    private static String TAG="destino.java";
+    private static String TAG="destino";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,7 +124,6 @@ public class destino extends AppCompatActivity {
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
                 //Color baseColor = new Color(); //= Color.BLACK;
-
                 float baseAlpha = ResourcesCompat.getFloat(getResources(), com.google.android.material.R.dimen.material_emphasis_medium);
                 float offset = (slideOffset-(-1f))/(1f-(-1f))*(1f-0f)+0f;
                 float alpha = com.google.android.material.math.MathUtils.lerp(0f,255f,offset*baseAlpha);
@@ -136,12 +136,10 @@ public class destino extends AppCompatActivity {
     //                                  METODOS PLACES SDK
     private void startAutocomplete(int requestCode){
         // Fields of place data to return after the user has made a selection
-        List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME);
-
+        List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME,Place.Field.LAT_LNG, Place.Field.ADDRESS);
         // Start the autocomplete intent.
         Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.FULLSCREEN, fields)
                 .build(this);
-
         startActivityForResult(intent, requestCode);
     }
     @Override
@@ -150,19 +148,35 @@ public class destino extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 Place place = Autocomplete.getPlaceFromIntent(data);
                 Log.i(TAG, "Place Name & Id: " + place.getName() + ", " + place.getId());
-
+                Log.i(TAG, "Place Id: "+ place.getId());
+                Log.i(TAG, "Place LatLng: "+ place.getLatLng());
+                Log.i(TAG, "Place Address: "+ place.getAddress());
+                TextView txtUbiActual = (TextView) findViewById(R.id.txtUbiActual);
+                txtUbiActual.setText(getString(R.string.ubiActual) + place.getName());
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 // TODO: Handle the error.
                 Status status = Autocomplete.getStatusFromIntent(data);
                 Log.i(TAG, status.getStatusMessage());
-            } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
+            }
+            return;
+        }else if (requestCode == REQUEST_CODE_AUTOCOMPLETE_TO){
+            if (resultCode == RESULT_OK) {
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                Log.i(TAG, "Place Name & Id: " + place.getName() + ", " + place.getId());
+                Log.i(TAG, "Place Id: "+ place.getId());
+                Log.i(TAG, "Place LatLng: "+ place.getLatLng());
+                Log.i(TAG, "Place Address: "+ place.getAddress());
+                TextView txtUbiDestino = (TextView) findViewById(R.id.txtUbiDestino);
+                txtUbiDestino.setText(getString(R.string.ubiDestino) + place.getName());
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+                Log.i(TAG, status.getStatusMessage());
             }
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
     //                                  MÉTODOS TOOLBAR
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
