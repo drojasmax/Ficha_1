@@ -40,9 +40,9 @@
     <string name="btnCasa">Casa</string>
     <string name="btnTrabajo">Trabajo</string>
     <string name="btnLugares">Lugares</string>
-    <string name="ubiActual">Ubicación actual</string>
+    <string name="ubiActual">Ubicación actual: </string>
     <string name="btnSeleccionarUbicacion">Seleccionar</string>
-    <string name="ubiDestino">Ubicación destino</string>
+    <string name="ubiDestino">Ubicación destino: </string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Clase navigation drawer</string>
     <string name="Viaje">Viaje</string>
@@ -50,9 +50,11 @@
     <string name="pasajeros">Disponible:</string>
     <string name="Efectivo">Efectivo</string>
     <string name="Transferencia">Transferencia</string>
-    <string name="precio">Precio</string>
+    <string name="precio">Precio: </string>
     <string name="crear_Cuenta2">Imagen Japan</string>
     <string name="googleAPIKEY">AIzaSyAUsVUUCaUT1UXm6YPNhORU42v9fxH45lA</string>
+    <string name="Disponibilidad">Disponibilidad: </string>
+    <string name="EstimaciónTiempo">Tiempo Estimado: </string>
 
     // Strings - Diego
     <string name="Ficha">Ficha</string>
