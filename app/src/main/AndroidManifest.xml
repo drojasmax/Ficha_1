@@ -50,10 +50,6 @@
             android:value="AIzaSyAUsVUUCaUT1UXm6YPNhORU42v9fxH45lA" />
 
         <activity
-            android:name=".google_maps_api"
-            android:exported="false"
-            android:label="@string/title_activity_google_maps_api" />
-        <activity
             android:name=".Perfil"
             android:exported="false" />
         <activity
