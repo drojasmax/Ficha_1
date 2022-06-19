@@ -21,6 +21,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
@@ -33,43 +39,24 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.Arrays;
 import java.util.List;
 
-public class destino extends AppCompatActivity {
+public class destino extends AppCompatActivity implements OnMapReadyCallback {
 
     private static int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
     private static int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
     private static String TAG="destino";
+    private GoogleMap mMap;
+    private LatLng mFromLatLng;
+    private LatLng mToLatLng;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destino);
-        //                              PLACES API
-        Places.initialize(getApplicationContext(), getString(R.string.googleAPIKEY));
+        setupMap();
+        setupPlaces();
         //                              TOOLBAR
-        //Referencia toolbar
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
-        /*DrawerLayout dl = (DrawerLayout) findViewById(R.id.principal);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,
-                dl,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        );
-        dl.addDrawerListener(toggle);
-        toggle.syncState();
-        tb.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(dl.isDrawerOpen(GravityCompat.START)){
-                    dl.closeDrawer(GravityCompat.START);
-                }
-                else{
-                    dl.openDrawer((int) Gravity.START);
-                }
-            }
-        });*/
         //                       BOTTOM APP BAR (MENÚ INFERIOR)
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.navi));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -92,21 +79,7 @@ public class destino extends AppCompatActivity {
                 return true;
             }
         });
-        //                            BOTONES PLACES SDK
-        Button btnFrom = (Button) navigationView.getHeaderView(0).findViewById(R.id.btnFrom);
-        btnFrom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_FROM);
-            }
-        });
-        Button btnTo = (Button) navigationView.getHeaderView(0).findViewById(R.id.btnTo);
-        btnTo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
-            }
-        });
+
         //                         BOTTOM APP BAR (MENÚ INFERIOR)
         FrameLayout scrim = (FrameLayout) findViewById(R.id.scrim);
         scrim.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +106,31 @@ public class destino extends AppCompatActivity {
             }
         });
     }
+
+    private void setupMap() {
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+    private void setupPlaces(){
+        NavigationView navi = (NavigationView) findViewById(R.id.navi);
+        Places.initialize(getApplicationContext(), getString(R.string.googleAPIKEY));
+        Button btnFrom = (Button) navi.getHeaderView(0).findViewById(R.id.btnFrom);
+        btnFrom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_FROM);
+            }
+        });
+        Button btnTo = (Button) navi.getHeaderView(0).findViewById(R.id.btnTo);
+        btnTo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
+            }
+        });
+    }
     //                                  METODOS PLACES SDK
     private void startAutocomplete(int requestCode){
         // Fields of place data to return after the user has made a selection
@@ -145,37 +143,27 @@ public class destino extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE_FROM) {
-            if (resultCode == RESULT_OK) {
-                Place place = Autocomplete.getPlaceFromIntent(data);
-                Log.i(TAG, "Place Name & Id: " + place.getName() + ", " + place.getId());
-                Log.i(TAG, "Place Id: "+ place.getId());
-                Log.i(TAG, "Place LatLng: "+ place.getLatLng());
-                Log.i(TAG, "Place Address: "+ place.getAddress());
-                TextView txtUbiActual = (TextView) findViewById(R.id.txtUbiActual);
-                txtUbiActual.setText(getString(R.string.ubiActual) + place.getName());
-            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
-                // TODO: Handle the error.
-                Status status = Autocomplete.getStatusFromIntent(data);
-                Log.i(TAG, status.getStatusMessage());
-            }
+            TextView txtUbiActual = (TextView) findViewById(R.id.txtUbiActual);
+            processAutocompleteResult(resultCode, data, txtUbiActual, R.string.ubiActual);
             return;
         }else if (requestCode == REQUEST_CODE_AUTOCOMPLETE_TO){
-            if (resultCode == RESULT_OK) {
-                Place place = Autocomplete.getPlaceFromIntent(data);
-                Log.i(TAG, "Place Name & Id: " + place.getName() + ", " + place.getId());
-                Log.i(TAG, "Place Id: "+ place.getId());
-                Log.i(TAG, "Place LatLng: "+ place.getLatLng());
-                Log.i(TAG, "Place Address: "+ place.getAddress());
-                TextView txtUbiDestino = (TextView) findViewById(R.id.txtUbiDestino);
-                txtUbiDestino.setText(getString(R.string.ubiDestino) + place.getName());
-            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
-                // TODO: Handle the error.
-                Status status = Autocomplete.getStatusFromIntent(data);
-                Log.i(TAG, status.getStatusMessage());
-            }
+            TextView txtUbiDestino = (TextView) findViewById(R.id.txtUbiDestino);
+            processAutocompleteResult(resultCode, data, txtUbiDestino, R.string.ubiDestino);
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+    public void processAutocompleteResult(int resultCode, Intent data, TextView label, int labelStringRes){
+        if (resultCode == RESULT_OK) {
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            Log.i(TAG, "Place" + place);
+            label.setText(getString(labelStringRes, place.getAddress()));
+
+        } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+            // TODO: Handle the error.
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Log.i(TAG, status.getStatusMessage());
+        }
     }
     //                                  MÉTODOS TOOLBAR
     @Override
@@ -202,5 +190,26 @@ public class destino extends AppCompatActivity {
             startActivity(i);
         }
         return super.onOptionsItemSelected(item);
+    }
+    //METODOS GOOGLE MAPS
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     *
+     * This is where we can add markers or lines, add listeners or move the camera. In this case we add 2 markers (origin and destination)
+     */
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-34, 151);
+        addMarker(sydney, "Sydney");
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+    public void addMarker(LatLng latLng, String titulo){
+        mMap.addMarker(new MarkerOptions()
+                .position(latLng)
+                .title(titulo));
+
     }
 }

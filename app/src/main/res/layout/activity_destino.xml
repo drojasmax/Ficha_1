@@ -16,10 +16,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
-            layout="@layout/activity_google_maps_api"
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="525dp"
+            tools:context=".destino" />
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -34,7 +36,7 @@
                 <FrameLayout
                     android:id="@+id/scrim"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="532dp">
 
                 </FrameLayout>
 
