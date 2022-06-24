@@ -26,6 +26,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -44,9 +45,15 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     private static int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
     private static int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
     private static String TAG="destino";
+    //Google Maps Api
     private GoogleMap mMap;
+    //Google Places Api
+    Place place;
+    //Origen y destino
     private LatLng mFromLatLng;
     private LatLng mToLatLng;
+    private Marker mMarkerFrom = null;
+    private Marker mMarkerTo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,20 +152,23 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE_FROM) {
             TextView txtUbiActual = (TextView) findViewById(R.id.txtUbiActual);
             processAutocompleteResult(resultCode, data, txtUbiActual, R.string.ubiActual);
+            mFromLatLng = this.place.getLatLng();
+            setMarkerFrom(mFromLatLng);
             return;
         }else if (requestCode == REQUEST_CODE_AUTOCOMPLETE_TO){
             TextView txtUbiDestino = (TextView) findViewById(R.id.txtUbiDestino);
             processAutocompleteResult(resultCode, data, txtUbiDestino, R.string.ubiDestino);
+            mToLatLng = this.place.getLatLng();
+            setMarkerTo(mToLatLng);
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
     public void processAutocompleteResult(int resultCode, Intent data, TextView label, int labelStringRes){
         if (resultCode == RESULT_OK) {
-            Place place = Autocomplete.getPlaceFromIntent(data);
+            this.place = Autocomplete.getPlaceFromIntent(data);
             Log.i(TAG, "Place" + place);
-            label.setText(getString(labelStringRes, place.getAddress()));
-
+            label.setText(getString(labelStringRes, place.getName()));
         } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
             // TODO: Handle the error.
             Status status = Autocomplete.getStatusFromIntent(data);
@@ -201,15 +211,28 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        addMarker(sydney, "Sydney");
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        //Set zoom preferences
+        mMap.setMinZoomPreference(15f);
+        mMap.setMaxZoomPreference(20f);
+        // . . .
     }
-    public void addMarker(LatLng latLng, String titulo){
-        mMap.addMarker(new MarkerOptions()
+    private Marker addMarker(LatLng latLng, String titulo){
+        final MarkerOptions markerOptions = (new MarkerOptions()
                 .position(latLng)
                 .title(titulo));
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        return mMap.addMarker(markerOptions);
+    }
+    private void setMarkerFrom(LatLng latLng){
+        if(mMarkerFrom != null){
+            mMarkerFrom.remove();
+        }
+        mMarkerFrom = addMarker(latLng, getString(R.string.marker_title_from));
+    }
+    private  void setMarkerTo(LatLng latLng){
+        if (mMarkerTo != null){
+            mMarkerTo.remove();
+        }
+        mMarkerTo = addMarker(latLng, getString(R.string.marker_title_to));
     }
 }
