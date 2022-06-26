@@ -59,10 +59,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:backgroundTint="@color/LightGray"
-                app:fabAlignmentMode="center"
-                app:fabAnimationMode="slide"
-                app:navigationIcon="@drawable/ic_travel" />
+                android:backgroundTint="@color/DimGray"
+                app:navigationIcon="@drawable/ic_car"
+                app:navigationIconTint="@color/black" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </FrameLayout>

@@ -52,7 +52,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/style_border_editext"
                 android:backgroundTint="@color/Silver"
-                android:inputType="text" />
+                android:inputType="text"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,9 +71,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/style_border_editext"
                     android:backgroundTint="@color/DimGray"
-                    android:foregroundTint="@color/DimGray"
+                    android:background="@drawable/style_border_editext"
                     android:text="@string/btnCasa"
                     app:icon="@drawable/ic_house"
                     app:iconTint="@color/white" />
