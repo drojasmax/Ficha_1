@@ -4,40 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_center_silver">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/txtDisponibilidad"
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Disponibilidad" />
+            android:layout_height="match_parent"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/txtEstimacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/EstimaciónTiempo" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
 
-        <TextView
-            android:id="@+id/txtPrecio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/precio" />
+                <TextView
+                    android:id="@+id/txtDisponibilidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Disponibilidad"
+                    android:textColor="#424242" />
+
+                <TextView
+                    android:id="@+id/idPasajerosDisponibles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:drawableStartCompat="@drawable/ic_people" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:id="@+id/txtEstimacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/EstimaciónTiempo"
+                    android:textColor="#424242" />
+
+                <TextView
+                    android:id="@+id/idEstimacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:drawableStartCompat="@drawable/ic_time" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txtPrecio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precio"
+                    android:textColor="#424242" />
+
+                <TextView
+                    android:id="@+id/idPrecio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:drawableStartCompat="@drawable/ic_money" />
+            </TableRow>
+
+        </TableLayout>
 
         <Button
             android:id="@+id/btnConfirmarViaje"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:text="@string/btnConfirmarViaje" />
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/style_border_editext"
+            android:backgroundTint="@color/DimGray"
+            android:text="@string/btnConfirmarViaje"
+            android:textColor="#D7CCC8"
+            android:textSize="10sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

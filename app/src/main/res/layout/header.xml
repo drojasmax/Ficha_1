@@ -3,45 +3,102 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:layout_gravity="center|top">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="12dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/txtUbiActual"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtIFrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtUbiActual">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtUbiActual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_border_editext"
+                android:backgroundTint="@color/Silver"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorLink="@color/DimGray" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtITo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtUbiDestino"
+            android:paddingTop="10dp"
+            android:paddingBottom="7dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtUbiDestino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/style_border_editext"
+                android:backgroundTint="@color/Silver"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TableLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/ubiActual" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnFrom"
-            android:layout_width="183dp"
-            android:layout_height="wrap_content"
-            android:text="@string/btnSeleccionarUbicacion" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|center_horizontal">
 
-        <TextView
-            android:id="@+id/txtUbiDestino"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/ubiDestino" />
+                <Button
+                    android:id="@+id/btnCasa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/style_border_editext"
+                    android:backgroundTint="@color/DimGray"
+                    android:foregroundTint="@color/DimGray"
+                    android:text="@string/btnCasa"
+                    app:icon="@drawable/ic_house"
+                    app:iconTint="@color/white" />
 
-        <Button
-            android:id="@+id/btnTo"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:text="@string/btnSeleccionarUbicacion" />
+                <Button
+                    android:id="@+id/btnTrabajo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/style_border_editext"
+                    android:backgroundTint="@color/DimGray"
+                    android:text="@string/btnTrabajo"
+                    app:icon="@drawable/ic_work" />
+
+                <Button
+                    android:id="@+id/btnLugares"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/style_border_editext"
+                    android:backgroundTint="@color/DimGray"
+                    android:text="@string/btnLugares"
+                    app:icon="@drawable/ic_favorite_places" />
+
+            </TableRow>
+
+        </TableLayout>
 
     </LinearLayout>
 

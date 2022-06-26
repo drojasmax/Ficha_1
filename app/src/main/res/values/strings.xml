@@ -46,7 +46,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Clase navigation drawer</string>
     <string name="Viaje">Viaje</string>
-    <string name="btnConfirmarViaje">Confirmar Viaje</string>
+    <string name="btnConfirmarViaje">Confirmar</string>
     <string name="pasajeros">Disponible:</string>
     <string name="Efectivo">Efectivo</string>
     <string name="Transferencia">Transferencia</string>
@@ -55,6 +55,10 @@
     <string name="googleAPIKEY">AIzaSyAUsVUUCaUT1UXm6YPNhORU42v9fxH45lA</string>
     <string name="Disponibilidad">Disponibilidad:</string>
     <string name="EstimaciónTiempo">Tiempo Estimado:</string>
+    <string name="btnBuscar">Buscar</string>
+    <string name="txtUbiActual">Seleccione en donde se encuentra</string>
+    <string name="txtUbiDestino">Seleccione hacia donde se dirige</string>
+
 
     // Strings - Diego
     <string name="Ficha">Ficha</string>
