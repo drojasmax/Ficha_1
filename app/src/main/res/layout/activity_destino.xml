@@ -10,7 +10,8 @@
     <include
         layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/LightGray" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -58,8 +59,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                app:navigationIcon="@drawable/ic_baseline_menu_24"
-                />
+                android:backgroundTint="@color/LightGray"
+                app:fabAlignmentMode="center"
+                app:fabAnimationMode="slide"
+                app:navigationIcon="@drawable/ic_travel" />
+
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </FrameLayout>
 

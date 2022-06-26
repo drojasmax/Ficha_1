@@ -36,6 +36,7 @@ import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Arrays;
 import java.util.List;
@@ -55,12 +56,15 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     private Marker mMarkerFrom = null;
     private Marker mMarkerTo = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destino);
         setupMap();
         setupPlaces();
+        //
+
         //                              TOOLBAR
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
@@ -82,7 +86,6 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 item.setChecked(true);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-
                 return true;
             }
         });
@@ -113,7 +116,6 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
     }
-
     private void setupMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -123,15 +125,15 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     private void setupPlaces(){
         NavigationView navi = (NavigationView) findViewById(R.id.navi);
         Places.initialize(getApplicationContext(), getString(R.string.googleAPIKEY));
-        Button btnFrom = (Button) navi.getHeaderView(0).findViewById(R.id.btnFrom);
-        btnFrom.setOnClickListener(new View.OnClickListener() {
+        TextInputEditText txtUbiActual = (TextInputEditText) navi.getHeaderView(0).findViewById(R.id.txtUbiActual);
+        txtUbiActual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_FROM);
             }
         });
-        Button btnTo = (Button) navi.getHeaderView(0).findViewById(R.id.btnTo);
-        btnTo.setOnClickListener(new View.OnClickListener() {
+        TextInputEditText txtUbiDestino = (TextInputEditText) navi.getHeaderView(0).findViewById(R.id.txtUbiDestino);
+        txtUbiDestino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
@@ -150,25 +152,25 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE_FROM) {
-            TextView txtUbiActual = (TextView) findViewById(R.id.txtUbiActual);
-            processAutocompleteResult(resultCode, data, txtUbiActual, R.string.ubiActual);
+            TextInputEditText txtUbiActual = (TextInputEditText) findViewById(R.id.txtUbiActual);
+            processAutocompleteResult(resultCode, data, txtUbiActual);
             mFromLatLng = this.place.getLatLng();
             setMarkerFrom(mFromLatLng);
             return;
         }else if (requestCode == REQUEST_CODE_AUTOCOMPLETE_TO){
-            TextView txtUbiDestino = (TextView) findViewById(R.id.txtUbiDestino);
-            processAutocompleteResult(resultCode, data, txtUbiDestino, R.string.ubiDestino);
+            TextInputEditText txtUbiDestino = (TextInputEditText) findViewById(R.id.txtUbiDestino);
+            processAutocompleteResult(resultCode, data, txtUbiDestino);
             mToLatLng = this.place.getLatLng();
             setMarkerTo(mToLatLng);
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-    public void processAutocompleteResult(int resultCode, Intent data, TextView label, int labelStringRes){
+    public void processAutocompleteResult(int resultCode, Intent data, TextInputEditText label){
         if (resultCode == RESULT_OK) {
             this.place = Autocomplete.getPlaceFromIntent(data);
             Log.i(TAG, "Place" + place);
-            label.setText(getString(labelStringRes, place.getName()));
+            label.setText(place.getName());
         } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
             // TODO: Handle the error.
             Status status = Autocomplete.getStatusFromIntent(data);
