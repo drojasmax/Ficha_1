@@ -15,7 +15,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="363dp"
         android:layout_height="444dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
