@@ -29,7 +29,7 @@
         android:layout_marginTop="8dp"
         android:hint="@string/Llegar"
         android:text="@string/Llegar"
-        android:textColor="#212221"
+        android:textColor="#212121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
@@ -46,8 +46,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.797"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        tools:ignore="ImageContrastCheck"
-        app:tint="#000000" />
+        app:tint="#000000"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/textView14"
@@ -119,14 +119,14 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="@string/Usuario"
-        android:textColor="#212221"
+        android:textColor="#212121"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="389dp"
-        android:layout_height="43dp"
+        android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:minHeight="48dp"
