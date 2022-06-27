@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ficha_Project">
         <activity
-            android:name=".destino"
+            android:name=".Login"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             android:name=".crearCuenta1"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".destino"
             android:exported="true">
         </activity>
         <!--
