@@ -58,7 +58,9 @@
     <string name="btnBuscar">Buscar</string>
     <string name="txtUbiActual">Seleccione en donde se encuentra</string>
     <string name="txtUbiDestino">Seleccione hacia donde se dirige</string>
-
+    <string name="textUbiActual">Ubicación actual</string>
+    <string name="textUbiDestino">Ubicación destino</string>
+    <string name="btnIr">Buscar un vehículo</string>
 
     // Strings - Diego
     <string name="Ficha">Ficha</string>
