@@ -30,6 +30,7 @@
                 android:id="@+id/txtUbiActual"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="48dp"
                 android:background="@drawable/style_border_editext"
                 android:backgroundTint="@color/Silver"
                 android:inputType="text"
@@ -43,7 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/txtUbiDestino"
-            android:paddingTop="10dp"
             android:paddingBottom="7dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -53,49 +53,65 @@
                 android:background="@drawable/style_border_editext"
                 android:backgroundTint="@color/Silver"
                 android:inputType="text"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:textColorHint="#37474F"
+                tools:ignore="TouchTargetSizeCheck,TextContrastCheck,TextContrastCheck" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center|center_horizontal">
+                android:gravity="center"
+                android:paddingTop="5dp">
+
+                <Button
+                    android:id="@+id/btnIr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/style_border_editext"
+                    android:text="@string/btnIr" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingTop="5dp">
 
                 <Button
                     android:id="@+id/btnCasa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:backgroundTint="@color/DimGray"
                     android:background="@drawable/style_border_editext"
-                    android:text="@string/btnCasa"
-                    app:icon="@drawable/ic_house"
-                    app:iconTint="@color/white" />
+                    android:drawableLeft="@drawable/ic_house"
+                    android:text="@string/btnCasa" />
 
                 <Button
                     android:id="@+id/btnTrabajo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/style_border_editext"
-                    android:backgroundTint="@color/DimGray"
-                    android:text="@string/btnTrabajo"
-                    app:icon="@drawable/ic_work" />
+                    android:drawableLeft="@drawable/ic_work"
+                    android:text="@string/btnTrabajo" />
 
                 <Button
                     android:id="@+id/btnLugares"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:background="@drawable/style_border_editext"
-                    android:backgroundTint="@color/DimGray"
-                    android:text="@string/btnLugares"
-                    app:icon="@drawable/ic_favorite_places" />
-
+                    android:drawableLeft="@drawable/ic_favorite_places"
+                    android:text="@string/btnLugares" />
             </TableRow>
 
         </TableLayout>
