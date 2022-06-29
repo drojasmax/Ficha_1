@@ -17,9 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -33,8 +31,8 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -71,15 +69,15 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         //                       BOTTOM APP BAR (MENÚ INFERIOR)
         final BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.navi));
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-
-        BottomAppBar bottomAppBar = (BottomAppBar) findViewById(R.id.bttmAppBar);
-        bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-
+                fab.hide();
             }
         });
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.navi);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -89,13 +87,12 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 return true;
             }
         });
-
-        //                         BOTTOM APP BAR (MENÚ INFERIOR)
         FrameLayout scrim = (FrameLayout) findViewById(R.id.scrim);
         scrim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                fab.show();
             }
         });
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {

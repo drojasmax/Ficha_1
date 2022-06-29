@@ -60,9 +60,20 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:backgroundTint="@color/DimGray"
-                app:navigationIcon="@drawable/ic_car"
+                app:hideOnScroll="true"
+                app:layout_anchorGravity="center"
                 app:navigationIconTint="@color/black" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/btnDireccion"
+                android:src="@drawable/ic_car"
+                app:fabSize="auto"
+                app:layout_anchor="@id/bttmAppBar"
+                />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </FrameLayout>
 
