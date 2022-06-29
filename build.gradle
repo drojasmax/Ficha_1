@@ -4,9 +4,14 @@ buildscript {
         // Check that you have the following line (if not, add it):
         google()  // Google's Maven repository
         mavenCentral()
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
     }
     dependencies {
         // Add this line
+        classpath 'com.android.tools.build:gradle:3.5.0'
         classpath 'com.google.gms:google-services:4.3.10'
         classpath 'com.android.tools.build:gradle:3.4.3'
         classpath 'com.google.firebase:perf-plugin:1.4.1'
