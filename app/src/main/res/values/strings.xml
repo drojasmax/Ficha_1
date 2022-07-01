@@ -82,11 +82,13 @@
     <string name="Llegado">He llegado a Destino</string>
     <string name="Nombre">Nombre Pasajero</string>
     <string name="Usuario">Usuario Frecuente</string>
+    <string name="ellamar">Ingrese numero </string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="marker_title_from">Desde</string>
     <string name="marker_title_to">Hacia</string>
+    <string name="title_activity_llamada">llamada</string>
 
 </resources>
