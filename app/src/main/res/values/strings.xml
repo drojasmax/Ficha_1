@@ -60,8 +60,10 @@
     <string name="txtUbiDestino">Seleccione hacia donde se dirige</string>
     <string name="textUbiActual">Ubicación actual</string>
     <string name="textUbiDestino">Ubicación destino</string>
-    <string name="btnIr">Buscar un vehículo</string>
-    <string name="btnDirigirse">¿Dónde te diriges?</string>
+    <string name="btnIr">Buscar un vehiculo</string>
+    <string name="rbConductor">Conductor</string>
+    <string name="rbPasajero">Pasajero</string>
+
     // Strings - Diego
     <string name="Ficha">Ficha</string>
     <string name="editarApellido">Apellido</string>

@@ -18,8 +18,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 public class menu_destino extends Fragment {
 
-
-
     public menu_destino() {
         // Required empty public constructor
     }
@@ -44,13 +42,7 @@ public class menu_destino extends Fragment {
         btnConfimarViaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("TAG", "Info");
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.setReorderingAllowed(true);
-                //Reemplazar el fragmento
-                fragmentTransaction.replace(R.id.navi, info_conductor.newInstance("",""));
-                fragmentTransaction.commit();
+
             }
         });
     }
