@@ -17,64 +17,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="618dp"
+            tools:context=".destino" />
+
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <fragment
-                android:id="@+id/map"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_width="match_parent"
-                android:layout_height="618dp"
-                tools:context=".destino" />
-
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="?attr/actionBarSize">
-
-                <!-- Screen content -->
-
-                <FrameLayout
-                    android:id="@+id/scrim"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </FrameLayout>
-
-                <com.google.android.material.navigation.NavigationView
-
-                    android:id="@+id/navi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:behavior_hideable="true"
-                    app:headerLayout="@layout/header"
-                    app:layout_behavior="@string/bottom_sheet_behavior" />
-
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bttmAppBar"
-                style="@style/Widget.MaterialComponents.BottomAppBar.PrimarySurface"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:backgroundTint="@color/DimGray"
-                app:hideOnScroll="true"
-                app:layout_anchorGravity="center"
-                app:navigationIconTint="@color/black" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:contentDescription="@string/btnDireccion"
-                android:src="@drawable/ic_car"
-                app:fabSize="auto"
-                app:layout_anchor="@id/bttmAppBar"
-                />
+            <include layout="@layout/bottom_sheet_layout"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/style_border_editext"
+            android:text="@string/btnDireccion" />
     </FrameLayout>
 
 </LinearLayout>
