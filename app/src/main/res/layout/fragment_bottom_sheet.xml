@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lyMenu"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,7 +16,7 @@
         android:id="@+id/etUbiActual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/style_border_editext"
+        android:background="@drawable/style_border_button"
         android:ems="10"
         android:hint="@string/txtUbiActual"
         android:inputType="textPersonName"
@@ -26,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:background="@drawable/style_border_editext"
+        android:background="@drawable/style_border_button"
         android:ems="10"
         android:hint="@string/txtUbiDestino"
         android:inputType="textPersonName"
@@ -53,10 +54,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/style_border_editext"
+            android:background="@drawable/style_border_button"
             android:drawableLeft="@drawable/ic_house"
             android:text="@string/btnCasa"
-            android:textSize="12sp" />
+            android:textColor="#424242"
+            android:textSize="12sp"
+            tools:ignore="TextContrastCheck" />
 
         <Button
             android:id="@+id/btnTrabajo"
@@ -65,7 +68,7 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_weight="1"
-            android:background="@drawable/style_border_editext"
+            android:background="@drawable/style_border_button"
             android:drawableLeft="@drawable/ic_work"
             android:text="@string/btnTrabajo"
             android:textSize="12sp" />
@@ -75,23 +78,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/style_border_editext"
+            android:background="@drawable/style_border_button"
             android:drawableLeft="@drawable/ic_favorite_places"
             android:text="@string/btnLugares"
+            android:textColor="#424242"
             android:textSize="12sp" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </LinearLayout>
 
 </LinearLayout>

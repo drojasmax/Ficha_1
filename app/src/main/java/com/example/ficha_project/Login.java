@@ -26,23 +26,19 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         iniciarFirebase();
     }
-
     public void iniciarFirebase(){
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
-
     public void login(View v){
         System.out.println("Entre al login");
         EditText campo1 = this.findViewById(R.id.loginCorreo);
         String correo = campo1.getText().toString();
         EditText campo2 = this.findViewById(R.id.loginContrasenia);
         String contrasenia = campo2.getText().toString();
-
         databaseReference.child("Cuenta").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -58,18 +54,13 @@ public class Login extends AppCompatActivity {
                         startActivity(i);}
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
 
     }
-
-
     public void crearCuenta(View v){
-
         Intent i = new Intent(this,crearCuenta1.class);
         startActivity(i);}
-
 }

@@ -50,91 +50,29 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     private LatLng mToLatLng;
     private Marker mMarkerFrom = null;
     private Marker mMarkerTo = null;
-    //BottomSheetBehavior
-    private BottomSheetBehavior bottomSheetBehavior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_destino);
         setupMap();
         // Setup Places Api
         Places.initialize(getApplicationContext(), getString(R.string.googleAPIKEY));
         // TOOLBAR
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
-        // Code for full screen here...
-        if (Build.VERSION.SDK_INT>=21){
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-            Window w = getWindow();
-            w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            w.setStatusBarColor(Color.TRANSPARENT);
-        }
-        setContentView(R.layout.activity_destino);
-        getSupportActionBar().hide();
-        Button btnDesplegarMenu = findViewById(R.id.btnBuscar);
 
-        LinearLayout bottomSheetLayout = findViewById(R.id.lyMenu);
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        // Visible part of bottom sheet default
-        bottomSheetBehavior.setPeekHeight(280);
-        // Set your sheet hideable or not
-        bottomSheetBehavior.setHideable(false);
-        // Set ClickListener on content of bottom sheet (MENU INTERACCIONES)
-        bottomSheetLayout.findViewById(R.id.etUbiActual).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_FROM);
-                bottomSheetBehavior.setHideable(true);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                bottomSheetLayout.setVisibility(View.VISIBLE);
-            }
-        });
-        bottomSheetLayout.findViewById(R.id.etUbiDestino).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
-                bottomSheetBehavior.setHideable(true);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                bottomSheetLayout.setVisibility(View.VISIBLE);
-            }
-        });
-        Button btnBuscarVehiculo = findViewById(R.id.btnBuscarVehiculo);
-        btnBuscarVehiculo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        Button btnDesplegarMenu = (Button) findViewById(R.id.btnBuscar);
 
-                bottomSheetBehavior.setHideable(true);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                bottomSheetLayout.setVisibility(View.VISIBLE);
-            }
-        });
 
         btnDesplegarMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bottomSheetBehavior.setPeekHeight(280);
-                bottomSheetBehavior.setHideable(false);
+                bottom_sheet bottomSheetFragment = new bottom_sheet();
+                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
             }
         });
-        // Set callback for changes
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
-            @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == BottomSheetBehavior.STATE_COLLAPSED){
-                    bottomSheetBehavior.setPeekHeight(0);
-                    bottomSheetLayout.setVisibility(View.VISIBLE);
-                }
-            }
-            @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                // Lest hide view on slide
-                bottomSheetLayout.setVisibility(View.INVISIBLE);
 
-            }
-        });
     }
     private void setupMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -142,6 +80,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
+    /*
     //                                  METODOS PLACES SDK
     private void startAutocomplete(int requestCode){
         // Fields of place data to return after the user has made a selection
@@ -151,16 +90,17 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 .build(this);
         startActivityForResult(intent, requestCode);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE_FROM) {
-            EditText etUbiActual = (EditText) findViewById(R.id.etUbiActual);
+
             processAutocompleteResult(resultCode, data, etUbiActual);
             mFromLatLng = this.place.getLatLng();
             setMarkerFrom(mFromLatLng);
             return;
         }else if (requestCode == REQUEST_CODE_AUTOCOMPLETE_TO){
-            EditText etUbiDestino = (EditText) findViewById(R.id.etUbiDestino);
+
             processAutocompleteResult(resultCode, data, etUbiDestino);
             mToLatLng = this.place.getLatLng();
             setMarkerTo(mToLatLng);
@@ -178,7 +118,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
             Status status = Autocomplete.getStatusFromIntent(data);
             Log.i(TAG, status.getStatusMessage());
         }
-    }
+    }*/
     // MÉTODOS TOOLBAR
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -216,8 +156,8 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         //Set zoom preferences
-        mMap.setMinZoomPreference(15f);
-        mMap.setMaxZoomPreference(20f);
+        //mMap.setMinZoomPreference(15f);
+        //mMap.setMaxZoomPreference(20f);
         // . . .
     }
     private Marker addMarker(LatLng latLng, String titulo){
