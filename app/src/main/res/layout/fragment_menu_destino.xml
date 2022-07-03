@@ -1,97 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/background_center_silver">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="90dp"
+    android:paddingTop="20dp"
+    android:paddingRight="90dp"
+    android:paddingBottom="10dp">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/txtDisponibilidad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Disponibilidad"
-                    android:textColor="#424242" />
-
-                <TextView
-                    android:id="@+id/idPasajerosDisponibles"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:drawableStartCompat="@drawable/ic_people" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp">
-
-                <TextView
-                    android:id="@+id/txtEstimacion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/EstimaciónTiempo"
-                    android:textColor="#424242" />
-
-                <TextView
-                    android:id="@+id/idEstimacion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:drawableStartCompat="@drawable/ic_time" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/txtPrecio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/precio"
-                    android:textColor="#424242" />
-
-                <TextView
-                    android:id="@+id/idPrecio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:drawableStartCompat="@drawable/ic_money" />
-            </TableRow>
-
-        </TableLayout>
-
-        <Button
-            android:id="@+id/btnConfirmarViaje"
+        <TextView
+            android:id="@+id/textView11"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:background="@drawable/style_border_button"
-            android:backgroundTint="@color/DimGray"
-            android:text="@string/btnConfirmarViaje"
-            android:textColor="#D7CCC8"
-            android:textSize="10sp" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_people" />
+
+        <TextView
+            android:id="@+id/txtPasajeros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="TextView" />
+
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_time" />
+
+        <TextView
+            android:id="@+id/txtTiempoE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_money" />
+
+        <TextView
+            android:id="@+id/txtPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="right|left"
+            android:text="TextView" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/btnConfirmarViaje" />
+
+</LinearLayout>
