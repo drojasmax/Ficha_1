@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.fragment.app.Fragment;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -16,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.google.android.gms.common.api.Status;
@@ -32,24 +36,29 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class destino extends AppCompatActivity implements OnMapReadyCallback {
 
-    private static int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
-    private static int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
-    private static String TAG="destino";
+    private static final int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
+    private static final int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
+    private static final String TAG = "destino";
     //Google Maps Api
     private GoogleMap mMap;
     //Google Places Api
     Place place;
+    EditText etUbiActual, etUbiDestino;
     //Origen y destino
     private LatLng mFromLatLng;
     private LatLng mToLatLng;
     private Marker mMarkerFrom = null;
     private Marker mMarkerTo = null;
+    //Bottom Sheet Behavior
+    BottomSheetBehavior bottomSheetBehavior;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,18 +70,49 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         // TOOLBAR
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
-
-        Button btnDesplegarMenu = (Button) findViewById(R.id.btnBuscar);
-
-
-        btnDesplegarMenu.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = findViewById(R.id.fab);
+        View bottomSheet = findViewById(R.id.bottom_sheet);
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        bottomSheetBehavior.setPeekHeight(0);
+        bottomSheetBehavior.setHideable(true);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bottom_sheet bottomSheetFragment = new bottom_sheet();
-                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+                    @Override
+                    public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                        if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
+                            etUbiActual = findViewById(R.id.etUbiActual);
+                            etUbiActual.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_FROM);
+                                }
+                            });
+                            etUbiDestino = findViewById(R.id.etUbiDestino);
+                            etUbiDestino.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
+                                }
+                            });
+                            Button btnBuscarVehiculo = findViewById(R.id.btnBuscarVehiculo);
+                            btnBuscarVehiculo.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                }
+                            });
+                        }
+                    }
+                    @Override
+                    public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+                    }
+                });
             }
         });
-
     }
     private void setupMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -80,7 +120,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-    /*
+
     //                                  METODOS PLACES SDK
     private void startAutocomplete(int requestCode){
         // Fields of place data to return after the user has made a selection
@@ -94,13 +134,13 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE_FROM) {
-
+            etUbiActual = findViewById(R.id.etUbiActual);
             processAutocompleteResult(resultCode, data, etUbiActual);
             mFromLatLng = this.place.getLatLng();
             setMarkerFrom(mFromLatLng);
             return;
         }else if (requestCode == REQUEST_CODE_AUTOCOMPLETE_TO){
-
+            etUbiDestino = findViewById(R.id.etUbiDestino);
             processAutocompleteResult(resultCode, data, etUbiDestino);
             mToLatLng = this.place.getLatLng();
             setMarkerTo(mToLatLng);
@@ -108,6 +148,12 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    private void setMarkerFrom(LatLng mFromLatLng) {
+    }
+    private void setMarkerTo(LatLng mToLatLng){
+    }
+
     public void processAutocompleteResult(int resultCode, Intent data, EditText label){
         if (resultCode == RESULT_OK) {
             this.place = Autocomplete.getPlaceFromIntent(data);
@@ -118,7 +164,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
             Status status = Autocomplete.getStatusFromIntent(data);
             Log.i(TAG, status.getStatusMessage());
         }
-    }*/
+    }
     // MÉTODOS TOOLBAR
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -159,24 +205,5 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         //mMap.setMinZoomPreference(15f);
         //mMap.setMaxZoomPreference(20f);
         // . . .
-    }
-    private Marker addMarker(LatLng latLng, String titulo){
-        final MarkerOptions markerOptions = (new MarkerOptions()
-                .position(latLng)
-                .title(titulo));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        return mMap.addMarker(markerOptions);
-    }
-    private void setMarkerFrom(LatLng latLng){
-        if(mMarkerFrom != null){
-            mMarkerFrom.remove();
-        }
-        mMarkerFrom = addMarker(latLng, getString(R.string.marker_title_from));
-    }
-    private  void setMarkerTo(LatLng latLng){
-        if (mMarkerTo != null){
-            mMarkerTo.remove();
-        }
-        mMarkerTo = addMarker(latLng, getString(R.string.marker_title_to));
     }
 }
