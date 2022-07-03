@@ -120,7 +120,6 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
     //                                  METODOS PLACES SDK
     private void startAutocomplete(int requestCode){
         // Fields of place data to return after the user has made a selection
@@ -202,8 +201,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         //Set zoom preferences
-        //mMap.setMinZoomPreference(15f);
-        //mMap.setMaxZoomPreference(20f);
-        // . . .
+        mMap.setMinZoomPreference(15f);
+
     }
 }
