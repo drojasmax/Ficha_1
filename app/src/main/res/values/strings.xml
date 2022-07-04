@@ -64,6 +64,8 @@
     <string name="btnIr">Buscar un vehiculo</string>
     <string name="rbConductor">Conductor</string>
     <string name="rbPasajero">Pasajero</string>
+    <string name="marker_from">Desde</string>
+    <string name="marker_to">Hacia</string>
 
     // Strings - Diego
     <string name="Ficha">Ficha</string>

@@ -38,12 +38,5 @@ public class menu_destino extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button btnConfimarViaje = view.findViewById(R.id.btnConfirmarViaje);
-        btnConfimarViaje.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 }
