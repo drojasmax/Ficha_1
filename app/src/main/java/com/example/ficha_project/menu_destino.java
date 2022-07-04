@@ -18,10 +18,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 
 public class menu_destino extends Fragment {
 
-    public menu_destino() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
