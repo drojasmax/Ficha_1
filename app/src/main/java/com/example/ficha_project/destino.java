@@ -4,24 +4,25 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import Modelo.Direction;
+import Modelo.Polyline;
+import Modelo.Step;
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import retrofit2.Response;
+import retrofit2.converter.gson.GsonConverterFactory;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,6 +31,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
@@ -37,9 +39,13 @@ import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.maps.android.PolyUtil;
 
 import java.util.Arrays;
+import java.util.Dictionary;
 import java.util.List;
+import retrofit2.Retrofit;
+
 
 public class destino extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -52,10 +58,9 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     Place place;
     EditText etUbiActual, etUbiDestino;
     //Origen y destino
-    private LatLng mFromLatLng;
-    private LatLng mToLatLng;
     private Marker mMarkerFrom = null;
     private Marker mMarkerTo = null;
+    private String sFromLocation, sToLocation;
     //Bottom Sheet Behavior
     BottomSheetBehavior bottomSheetBehavior;
 
@@ -70,6 +75,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         // TOOLBAR
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
+        // BottomSheet (Menú inferior desplegable
         FloatingActionButton fab = findViewById(R.id.fab);
         View bottomSheet = findViewById(R.id.bottom_sheet);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
@@ -82,7 +88,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
                     @Override
                     public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                        if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED){
+                        if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_EXPANDED) {
                             etUbiActual = findViewById(R.id.etUbiActual);
                             etUbiActual.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -97,13 +103,6 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                                     startAutocomplete(REQUEST_CODE_AUTOCOMPLETE_TO);
                                 }
                             });
-                            Button btnBuscarVehiculo = findViewById(R.id.btnBuscarVehiculo);
-                            btnBuscarVehiculo.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-
-                                }
-                            });
                         }
                     }
                     @Override
@@ -113,6 +112,8 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 });
             }
         });
+        sFromLocation = getIntent().getStringExtra("from_location");
+        sToLocation = getIntent().getStringExtra("to_location");
     }
     private void setupMap() {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -120,7 +121,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-    //                                  METODOS PLACES SDK
+    // METODOS PLACES SDK
     private void startAutocomplete(int requestCode){
         // Fields of place data to return after the user has made a selection
         List<Place.Field> fields = Arrays.asList(Place.Field.ID, Place.Field.NAME,Place.Field.LAT_LNG, Place.Field.ADDRESS);
@@ -135,22 +136,17 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         if (requestCode == REQUEST_CODE_AUTOCOMPLETE_FROM) {
             etUbiActual = findViewById(R.id.etUbiActual);
             processAutocompleteResult(resultCode, data, etUbiActual);
-            mFromLatLng = this.place.getLatLng();
+            LatLng mFromLatLng = this.place.getLatLng();
             setMarkerFrom(mFromLatLng);
             return;
         }else if (requestCode == REQUEST_CODE_AUTOCOMPLETE_TO){
             etUbiDestino = findViewById(R.id.etUbiDestino);
             processAutocompleteResult(resultCode, data, etUbiDestino);
-            mToLatLng = this.place.getLatLng();
+            LatLng mToLatLng = this.place.getLatLng();
             setMarkerTo(mToLatLng);
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void setMarkerFrom(LatLng mFromLatLng) {
-    }
-    private void setMarkerTo(LatLng mToLatLng){
     }
 
     public void processAutocompleteResult(int resultCode, Intent data, EditText label){
@@ -190,18 +186,54 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
         }
         return super.onOptionsItemSelected(item);
     }
-    // METODOS GOOGLE MAPS
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     *
-     * This is where we can add markers or lines, add listeners or move the camera. In this case we add 2 markers (origin and destination)
-     */
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        //Set zoom preferences
-        mMap.setMinZoomPreference(15f);
 
+    // METODOS GOOGLE MAPS & DIRECTIONS API
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+    }
+    private void callDirectionsApi(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://maps.googleapis.com/maps/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        GMapsDirectionsAPI api = retrofit.create(GMapsDirectionsAPI.class);
+        Call<Direction> call = api.getDirection("-27.3603996,-70.3129455", "-27.3602978,-70.3400296", "AIzaSyCgUYiQ5ke0B_-BDPKMdLS22vQdZg0Dzh8");
+        call.enqueue(new Callback<Direction>() {
+            @Override
+            public void onResponse(Call<Direction> call, Response<Direction> response) {
+                for (Step step : response.body().getRoutes().get(0).getLegs().get(0).getSteps()){
+                    Polyline polyline = step.getPolyline();
+                    List<LatLng> points = PolyUtil.decode(polyline.getPoints());
+                    mMap.addPolyline(new PolylineOptions().addAll(points).width(5).color(Color.GRAY));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Direction> call, Throwable t) {
+
+            }
+        });
+    }
+    private Marker addMarker(LatLng latLng, String title){
+        MarkerOptions markerOptions = new MarkerOptions()
+                .position(latLng)
+                .title(title);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        return mMap.addMarker(markerOptions);
+    }
+    private void setMarkerFrom(LatLng mFromLatLng) {
+        // If already set, remove it
+        if (mMarkerFrom != null){
+            mMarkerFrom.remove();
+        }
+        mMarkerFrom = addMarker(mFromLatLng, getString(R.string.marker_from));
+    }
+    private void setMarkerTo(LatLng mToLatLng){
+        // If already set, remove it
+        if (mMarkerTo != null){
+            mMarkerTo.remove();
+        }
+        mMarkerTo = addMarker(mToLatLng, getString(R.string.marker_to));
     }
 }
