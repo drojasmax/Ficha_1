@@ -40,9 +40,7 @@ import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.maps.android.PolyUtil;
-
 import java.util.Arrays;
-import java.util.Dictionary;
 import java.util.List;
 import retrofit2.Retrofit;
 
@@ -69,10 +67,14 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_destino);
+        // Directions Api
+        sFromLocation = getIntent().getStringExtra("location_from");
+        sToLocation = getIntent().getStringExtra("location_to");
+        // Setup Google Maps Api
         setupMap();
         // Setup Places Api
         Places.initialize(getApplicationContext(), getString(R.string.googleAPIKEY));
-        // TOOLBAR
+        // Toolbar
         androidx.appcompat.widget.Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
         // BottomSheet (Menú inferior desplegable
@@ -154,6 +156,7 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
             this.place = Autocomplete.getPlaceFromIntent(data);
             Log.i(TAG, "Place" + place);
             label.setText(place.getAddress());
+            callDirectionsApi();
         } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
             // TODO: Handle the error.
             Status status = Autocomplete.getStatusFromIntent(data);
@@ -198,20 +201,27 @@ public class destino extends AppCompatActivity implements OnMapReadyCallback {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         GMapsDirectionsAPI api = retrofit.create(GMapsDirectionsAPI.class);
-        Call<Direction> call = api.getDirection("-27.3603996,-70.3129455", "-27.3602978,-70.3400296", "AIzaSyCgUYiQ5ke0B_-BDPKMdLS22vQdZg0Dzh8");
+        Call<Direction> call = api.getDirection(sFromLocation, sToLocation, "AIzaSyCgUYiQ5ke0B_-BDPKMdLS22vQdZg0Dzh8");
+        final boolean setMarkerFirstTime = false;
         call.enqueue(new Callback<Direction>() {
             @Override
-            public void onResponse(Call<Direction> call, Response<Direction> response) {
+            public void onResponse(@NonNull Call<Direction> call, @NonNull Response<Direction> response) {
+                boolean setMarkerFirstTime = false;
                 for (Step step : response.body().getRoutes().get(0).getLegs().get(0).getSteps()){
                     Polyline polyline = step.getPolyline();
                     List<LatLng> points = PolyUtil.decode(polyline.getPoints());
                     mMap.addPolyline(new PolylineOptions().addAll(points).width(5).color(Color.GRAY));
+                    if (!setMarkerFirstTime){
+                        mMap.addMarker(new MarkerOptions().position(points.get(0)));
+                        mMap.moveCamera(CameraUpdateFactory.newLatLng(points.get(0)));
+                        setMarkerFirstTime = true;
+                    }
                 }
             }
 
             @Override
-            public void onFailure(Call<Direction> call, Throwable t) {
-
+            public void onFailure(@NonNull Call<Direction> call, @NonNull Throwable t) {
+                Log.e("Error", t.getMessage());
             }
         });
     }
