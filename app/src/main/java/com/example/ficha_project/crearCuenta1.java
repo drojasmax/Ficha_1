@@ -20,7 +20,9 @@ public class crearCuenta1 extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Este metodo captura el numero de telefono ingresado y lo envia al Activity crearCuenta2.
+     */
     public void capturarNumero(View v){
         EditText campoNumero = this.findViewById(R.id.textPhone);
         String numero = campoNumero.getText().toString();

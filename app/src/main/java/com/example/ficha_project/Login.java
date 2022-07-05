@@ -28,11 +28,17 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         iniciarFirebase();
     }
+    /**
+     * Este metodo inicia la base de datos firebase.
+     */
     public void iniciarFirebase(){
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
+    /**
+     * Este metodo recuperado las credenciales ingresadas, las comprueba en Firebase y permite el inicio de sesion.
+     */
     public void login(View v){
         System.out.println("Entre al login");
         EditText campo1 = this.findViewById(R.id.loginCorreo);
@@ -60,6 +66,9 @@ public class Login extends AppCompatActivity {
         });
 
     }
+    /**
+     * Este metodo redirige al activity crearCuenta1.
+     */
     public void crearCuenta(View v){
         Intent i = new Intent(this,crearCuenta1.class);
         startActivity(i);}
