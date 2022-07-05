@@ -32,13 +32,17 @@ public class crearCuenta2 extends AppCompatActivity {
         setContentView(R.layout.activity_crear_cuenta2);
         iniciarFirebase();
     }
-
+    /**
+     * Este metodo inicia la base de datos firebase.
+     */
     public void iniciarFirebase(){
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
-
+    /**
+     * Este metodo recupera los datos ingresados por el usuario y crea la cuenta en Firebase.
+     */
     public void registrarCuenta(View v){
         textNombre = (EditText) findViewById(R.id.textNombre);
         textApellido = (EditText) findViewById(R.id.textApellido);
