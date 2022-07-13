@@ -2,28 +2,27 @@ package Modelo;
 
 public class Pasajero {
 
-    private String id;
+    private int id;
     private String nombre;
     private String apellido;
-    private String numero;
-    private String genero;
+    private String contra;
+    private int numero;
+    private String foto;
 
-    public Pasajero() {
+    public Pasajero(int id, String nombre, String apellido, String contra, int numero, String foto) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.contra = contra;
+        this.numero = numero;
+        this.foto = foto;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -43,21 +42,27 @@ public class Pasajero {
         this.apellido = apellido;
     }
 
-    public String getNumero() {
+    public String getContra() {
+        return contra;
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
+    }
+
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    @Override
-    public String toString() {
-        return "Pasajero{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", numero='" + numero + '\'' +
-                '}';
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

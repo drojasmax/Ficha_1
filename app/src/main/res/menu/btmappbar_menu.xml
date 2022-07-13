@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/opSolicitudes"
+        android:icon="@drawable/ic_ruta"
+        android:title="@string/mSolicitudes" />
+    <item
+        android:id="@+id/opIngresos"
+        android:icon="@drawable/ic_ingresos"
+        android:title="@string/mIngresos"
+        />
+    <item
+        android:id="@+id/opClasificacion"
+        android:icon="@drawable/ic_clasificar"
+        android:title="@string/mClasificacion"
+        />
+    <item
+        android:id="@+id/opPago"
+        android:icon="@drawable/ic_pago"
+        android:title="@string/mPago"
+        />
+</menu>

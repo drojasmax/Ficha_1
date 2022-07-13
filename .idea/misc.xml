@@ -45,37 +45,54 @@
         <entry key="..\:/Users/COP412L/AndroidStudioProjects/ficha/app/src/main/res/layout/fragment_info_pasajero.xml" value="0.358695652173913" />
         <entry key="..\:/Users/COP412L/AndroidStudioProjects/ficha2/app/src/main/res/layout/activity_crear_cuenta2.xml" value="0.358695652173913" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/drawable/background_center_silver.xml" value="0.1355" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/drawable/color_item_bttmappbar.xml" value="0.1715" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/drawable/ic_solicitudes.xml" value="0.1715" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/drawable/style_border_button.xml" value="0.1" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/drawable/style_border_button_desplegar_menu.xml" value="0.1595" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/drawable/style_border_editext.xml" value="0.1" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/drawable/style_bottom_sheet.xml" value="0.1845" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_conductor.xml" value="0.1" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_conductor_principal.xml" value="0.22" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_crear_cuenta1.xml" value="0.11911231884057971" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_crear_cuenta2.xml" value="0.11911231884057971" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_destino.xml" value="0.16" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_destino1.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_destino_places.xml" value="0.18885869565217392" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_google_maps_api.xml" value="0.17119565217391305" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_info_conductor.xml" value="0.14221014492753623" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_info_pasajero.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_login.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_main.xml" value="0.13405797101449277" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_main2.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_maps.xml" value="0.16757246376811594" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_pasajero_principal.xml" value="0.15443840579710144" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_perfil.xml" value="0.22" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_precioydisponibilidad.xml" value="0.12" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_prueba.xml" value="0.1" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/activity_subir_documentos.xml" value="0.25" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/content_main.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/destino_places.xml" value="0.18885869565217392" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_bottom_sheet.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_calificacion.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_first.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_info_conductor.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_info_pasajero.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_ingresos.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_menu_destino.xml" value="0.33" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_pago.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/fragment_solicitudes.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/haeder2.xml" value="0.22" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/header.xml" value="0.16847826086956522" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/toolbar_conductor.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/layout/toolbar_pasajero.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/btmappbar_menu.xml" value="0.33" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu2.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu3.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu_conductor.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/DUVAN/AndroidStudioProjects/Ficha_1/app/src/main/res/menu/menu_pasajero.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

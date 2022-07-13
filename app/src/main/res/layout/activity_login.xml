@@ -1,99 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Login" >
+    tools:context=".Login"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/tvNombreApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/Ficha"
+        android:textSize="60sp" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvCorreo" />
 
     <EditText
-        android:id="@+id/loginCorreo"
-        android:layout_width="wrap_content"
+        android:id="@+id/etCorreo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:autofillHints=""
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/correo"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:text="d@gmail.com"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/tvContra" />
 
     <EditText
-        android:id="@+id/loginContrasenia"
-        android:layout_width="wrap_content"
+        android:id="@+id/etContra"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:autofillHints=""
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/contrasenia"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:text="12345"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginCorreo" />
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/cbRecordar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/cbRecuerdame" />
 
     <Button
-        android:id="@+id/btnIniciarSesion"
-        android:layout_width="200dp"
+        android:id="@+id/btnEntrar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:onClick="login"
-        android:text="@string/iniciarsesion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginContrasenia" />
+        android:layout_marginTop="20dp"
+        android:text="@string/btnEntrar" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:minHeight="48dp"
-        android:onClick="crearCuenta"
-        android:text="@string/registrate"
-        android:textColor="#0277BD"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
-        app:layout_constraintVertical_bias="0.502" />
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:text="@string/notienescuenta"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
-        app:layout_constraintVertical_bias="0.449" />
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:text="@string/notienescuenta"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
-        android:fontFamily="sans-serif-light"
-        android:hint="@string/Ficha"
-        android:text="@string/Ficha"
-        android:textColor="#212121"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvRegistrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:minHeight="48dp"
+            android:onClick="crearCuenta"
+            android:text="@string/registrate"
+            android:textColor="#0277BD"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
