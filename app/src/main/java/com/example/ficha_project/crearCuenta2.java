@@ -23,26 +23,14 @@ import Modelo.Pasajero;
 public class crearCuenta2 extends AppCompatActivity {
 
     EditText textNombre,textApellido,textCorreo,textContrasenia;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_cuenta2);
-        iniciarFirebase();
+
     }
-    /**
-     * Este metodo inicia la base de datos firebase.
-     */
-    public void iniciarFirebase(){
-        FirebaseApp.initializeApp(this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
-    }
-    /**
-     * Este metodo recupera los datos ingresados por el usuario y crea la cuenta en Firebase.
-     */
+
     public void registrarCuenta(View v){
         textNombre = (EditText) findViewById(R.id.textNombre);
         textApellido = (EditText) findViewById(R.id.textApellido);
@@ -95,21 +83,9 @@ public class crearCuenta2 extends AppCompatActivity {
 
             cuenta.setIdusuario(idusuario);
 
-            databaseReference.child("Pasajero").child(idusuario).setValue(p);
-            databaseReference.child("Cuenta").child(idcuenta).setValue(cuenta);
-
         }
         else if(usuario.equals("Conductor")){
-            Conductor c = new Conductor();
-            c.setId(idusuario);
-            c.setNombre(nombre);
-            c.setApellido(apellido);
-            c.setNumero(numero);
 
-            cuenta.setIdusuario(idusuario);
-
-            databaseReference.child("Conductor").child(idusuario).setValue(c);
-            databaseReference.child("Cuenta").child(idcuenta).setValue(cuenta);
         }
     }
 }

@@ -19,56 +19,17 @@ import com.google.firebase.database.ValueEventListener;
 import Modelo.Cuenta;
 
 public class Login extends AppCompatActivity {
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        iniciarFirebase();
-    }
-    /**
-     * Este metodo inicia la base de datos firebase.
-     */
-    public void iniciarFirebase(){
-        FirebaseApp.initializeApp(this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
-    }
-    /**
-     * Este metodo recuperado las credenciales ingresadas, las comprueba en Firebase y permite el inicio de sesion.
-     */
-    public void login(View v){
-        System.out.println("Entre al login");
-        EditText campo1 = this.findViewById(R.id.loginCorreo);
-        String correo = campo1.getText().toString();
-        EditText campo2 = this.findViewById(R.id.loginContrasenia);
-        String contrasenia = campo2.getText().toString();
-        databaseReference.child("Cuenta").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                System.out.println("Imprimiendo ...");
-                for (DataSnapshot objeto: snapshot.getChildren()) {
-                    Cuenta cuenta = objeto.getValue(Cuenta.class);
-                    System.out.println(cuenta);
-                    if(correo.equals(cuenta.getCorreo()) && contrasenia.equals(cuenta.getContrasenia())){
-                        Intent i = new Intent(getApplicationContext(),destino.class);
-                        Toast.makeText(Login.this, "Sesion iniciada", Toast.LENGTH_SHORT).show();
-                        i.putExtra("idusuario",cuenta.getIdusuario());
-                        i.putExtra("correo",cuenta.getCorreo());
-                        startActivity(i);}
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
 
     }
-    /**
-     * Este metodo redirige al activity crearCuenta1.
-     */
+    public void login(View v){
+
+    }
+
     public void crearCuenta(View v){
         Intent i = new Intent(this,crearCuenta1.class);
         startActivity(i);}

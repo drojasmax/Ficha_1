@@ -66,7 +66,20 @@
     <string name="rbPasajero">Pasajero</string>
     <string name="marker_from">Desde</string>
     <string name="marker_to">Hacia</string>
-
+    <string name="mSolicitudes">Solicitudes</string>
+    <string name="mIngresos">Ingresos</string>
+    <string name="mClasificacion">Clasificación</string>
+    <string name="mPago">Pago</string>
+    <string name="mCAyuda">Ayuda</string>
+    <string name="mCSoporte">Soporte</string>
+    <string name="mCSeguridad">Seguridad</string>
+    <string name="mCConfiguraciones">Configuración</string>
+    <string name="abrirToggle">Abrir</string>
+    <string name="cerrarToogle">Cerrar</string>
+    <string name="btnEntrar">Iniciar sesión</string>
+    <string name="tvCorreo">Email</string>
+    <string name="tvContra">Contraseña</string>
+    <string name="cbRecuerdame">Recuerdame</string>
     // Strings - Diego
     <string name="Ficha">Ficha</string>
     <string name="editarApellido">Apellido</string>
@@ -83,4 +96,9 @@
     <string name="Licencia">Licencia de Conducir Chilena</string>
     <string name="AntecedentesPenales">Certificado de Antecedentes Penales</string>
     <string name="Permiso">Permiso de Circulación</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="item_menu_conductor">Item</string>
+    <string name="string_item_menu_conductor">item_opPerfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
