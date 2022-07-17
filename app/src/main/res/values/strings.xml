@@ -27,8 +27,6 @@
     <string name="rellenatuperfil">Rellena tu Perfil</string>
     <string name="contrasenia">Contraseña</string>
     <string name="registrarse">Registrarse</string>
-    <string name="pasajero">Pasajero</string>
-    <string name="conductor">Conductor</string>
     <string name="ficha">Ficha</string>
     <string name="iniciarsesion">Iniciar sesion</string>
     <string name="notienescuenta">¿No tienes cuenta?</string>
@@ -48,7 +46,7 @@
     <string name="navigation_drawer_close">Clase navigation drawer</string>
     <string name="Viaje">Viaje</string>
     <string name="btnConfirmarViaje">Confirmar</string>
-    <string name="pasajeros">Disponible:</string>
+    <string name="DisponibilidadP">Disponible:</string>
     <string name="Efectivo">Efectivo</string>
     <string name="Transferencia">Transferencia</string>
     <string name="precio">Precio:</string>
@@ -80,6 +78,8 @@
     <string name="tvCorreo">Email</string>
     <string name="tvContra">Contraseña</string>
     <string name="cbRecuerdame">Recuerdame</string>
+    <string name="comoVas">¿Pasajero o Conductor?</string>
+    <string name="telefono">Teléfono</string>
     // Strings - Diego
     <string name="Ficha">Ficha</string>
     <string name="editarApellido">Apellido</string>

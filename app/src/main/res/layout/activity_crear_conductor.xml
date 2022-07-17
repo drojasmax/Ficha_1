@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".crearCuenta2">
+    tools:context=".crear_pasajero">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/textNombre"
+            android:id="@+id/etNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -49,7 +49,7 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/textApellido"
+            android:id="@+id/etApellido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -62,52 +62,30 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/textCorreo"
+            android:id="@+id/etCorreoElectronico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/correo"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:textColorHint="#757575"
-            android:autofillHints="" />
+            android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/textContrasenia"
+            android:id="@+id/etContrasenia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/contrasenia"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:textColorHint="#757575"
-            android:autofillHints="" />
-
-        <RadioGroup
-            android:id="@+id/rgUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <RadioButton
-                android:id="@+id/rbPasajero"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/pasajero" />
-
-            <RadioButton
-                android:id="@+id/rbConductor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/conductor" />
-        </RadioGroup>
+            android:textColorHint="#757575" />
 
         <Button
             android:id="@+id/btnRegistrarse"
@@ -115,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:onClick="registrarCuenta"
+            android:background="@drawable/style_border_button"
             android:text="@string/registrarse" />
 
     </LinearLayout>
