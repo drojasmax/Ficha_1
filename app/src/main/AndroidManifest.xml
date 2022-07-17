@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ficha_project" >
+    package="com.example.ficha_project">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ficha_Project" >
+        android:theme="@style/Theme.Ficha_Project">
+        <activity
+            android:name=".crear_conductor"
+            android:exported="false" />
         <activity
             android:name=".conductor_principal"
             android:exported="false" />
@@ -36,7 +41,7 @@
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".Login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,10 +52,10 @@
             android:name=".subir_documentos"
             android:exported="false" />
         <activity
-            android:name=".crearCuenta2"
+            android:name=".crear_pasajero"
             android:exported="false" />
         <activity
-            android:name=".crearCuenta1"
+            android:name=".redireccionar_pasajero_conductor"
             android:exported="false" />
         <activity
             android:name=".pasajero_principal"

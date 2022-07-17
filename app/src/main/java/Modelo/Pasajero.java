@@ -2,28 +2,20 @@ package Modelo;
 
 public class Pasajero {
 
-    private int id;
     private String nombre;
     private String apellido;
-    private String contra;
-    private int numero;
+    private String correo;
+    private String contrasena;
+    private String telefono;
     private String foto;
 
-    public Pasajero(int id, String nombre, String apellido, String contra, int numero, String foto) {
-        this.id = id;
+    public Pasajero(String nombre, String apellido, String correo, String contrasena, String telefono, String foto) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.contra = contra;
-        this.numero = numero;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
         this.foto = foto;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -42,20 +34,28 @@ public class Pasajero {
         this.apellido = apellido;
     }
 
-    public String getContra() {
-        return contra;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setContra(String contra) {
-        this.contra = contra;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
-    public int getNumero() {
-        return numero;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getFoto() {
