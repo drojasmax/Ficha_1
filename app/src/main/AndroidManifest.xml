@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ficha_project" >
+    package="com.example.ficha_project">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ficha_Project"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".info_pasajero"
+            android:exported="false" />
         <activity
             android:name=".pasajero_principal"
             android:exported="false" />
@@ -41,8 +44,7 @@
 
         <activity
             android:name=".Login"
-            android:exported="true" >
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".subir_documentos"
             android:exported="false" />
@@ -59,8 +61,8 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>/>
-
+            </intent-filter>
+            />
         </activity>
         <activity
             android:name=".Perfil"

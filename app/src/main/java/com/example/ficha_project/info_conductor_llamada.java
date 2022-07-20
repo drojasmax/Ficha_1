@@ -38,4 +38,10 @@ ImageButton btCall;
              }
             });
         }
+    public void anterior(View view){
+        Intent anterior = new Intent(this, info_pasajero.class);
+        startActivity(anterior);
+
+
+    }
     }

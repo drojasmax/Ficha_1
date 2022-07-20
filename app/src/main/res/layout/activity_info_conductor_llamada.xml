@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".info_conductor_llamada">
+    tools:context=".info_conductor_llamada"
+    android:id="@+id/linearLayout3">
 
     <EditText
         android:layout_width="wrap_content"
@@ -15,15 +16,33 @@
         android:hint="Enter Phone Number"
         android:digits="1234567890"
         android:maxLength="10"
-        android:inputType="phone" />
+        android:inputType="phone"
+        tools:layout_conversion_absoluteHeight="45dp"
+        tools:layout_editor_absoluteY="273dp"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_conversion_absoluteWidth="173dp" />
     <ImageButton
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/bt_call"
-        android:layout_marginTop="10dp"
         android:src="@drawable/ic_call"
         android:background="@drawable/bg_round"
-        />
+        tools:layout_conversion_absoluteHeight="80dp"
+        tools:layout_editor_absoluteY="328dp"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_conversion_absoluteWidth="80dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:onClick="anterior"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_conversion_absoluteHeight="51dp"
+        tools:layout_conversion_absoluteWidth="411dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="408dp" />
 
 
 </LinearLayout>

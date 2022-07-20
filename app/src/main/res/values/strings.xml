@@ -98,6 +98,12 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="item_menu_conductor">Item</string>
     <string name="string_item_menu_conductor">item_opPerfil</string>
+    <string name="Rumbo">Rumbo al punto de </string>
+    <string name="Llegue">Llegue antes de las </string>
+    <string name="Nombre">Usuario nombre</string>
+    <string name="Frecuente">Usuario Frecuente</string>
+    <string name="Llegado">He llegado a destino</string>
+    <string name="Llamar">Llamar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
