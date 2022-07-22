@@ -16,10 +16,13 @@
         android:theme="@style/Theme.Ficha_Project"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".pasajero_principal"
+            android:exported="false" />
+        <activity
             android:name=".info_pasajero"
             android:exported="false" />
         <activity
-            android:name=".pasajero_principal"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".crear_conductor"
@@ -44,7 +47,7 @@
 
         <activity
             android:name=".info_conductor_llamada"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".subir_documentos"
             android:exported="false" />
@@ -55,7 +58,7 @@
             android:name=".redireccionar_pasajero_conductor"
             android:exported="false" />
         <activity
-            android:name=".Login"
+            android:name=".Presentacion"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

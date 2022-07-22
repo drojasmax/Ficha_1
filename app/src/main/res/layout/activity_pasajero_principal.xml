@@ -45,6 +45,9 @@
                 android:clickable="true"
                 android:contentDescription="@string/btnDireccion"
                 app:srcCompat="@drawable/ic_car" />
+
+
+
         </FrameLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -66,6 +69,17 @@
                     layout="@layout/bottom_sheet_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
+                <Button
+                    android:id="@+id/btnCerrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#1976d2"
+                    android:text="@string/cerrarsesion"
+                    android:textColor="#FFF"
+                    android:textSize="18sp" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 

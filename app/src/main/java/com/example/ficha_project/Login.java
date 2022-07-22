@@ -4,7 +4,9 @@ import com.example.ficha_project.R;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,10 +41,19 @@ public class Login extends AppCompatActivity {
         etContra = findViewById(R.id.etContra);
         btnIniciarSesion = findViewById(R.id.btnLogin);
 
+        recuperarPreferencias();
+
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://200.29.219.25:3307/duvan/validarPasajero.php");
+
+                correo=etCorreo.getText().toString();
+                contra=etContra.getText().toString();
+                if (!correo.isEmpty() && !contra.isEmpty()){
+                    validarUsuario("http://200.29.219.25:3307/duvan/validarPasajero.php");
+                }else{
+                  Toast.makeText(Login.this, "No colocar campos vacios", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -52,8 +63,10 @@ public class Login extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (!response.isEmpty()) {
+                    guardarPreferencias();
                     Intent intent = new Intent(getApplicationContext(), pasajero_principal.class);
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(Login.this, "Usuario o contrasenia incorrecta", Toast.LENGTH_SHORT);
                 }
@@ -68,8 +81,8 @@ public class Login extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("Correo", etCorreo.getText().toString());
-                parametros.put("Contrasenia", etContra.getText().toString());
+                parametros.put("Correo", correo);
+                parametros.put("Contrasenia", contra);
 
                 return parametros;
             }
@@ -77,4 +90,17 @@ public class Login extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest); //todas las peticiones de nuestra app
     }
+private void guardarPreferencias(){
+    SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor=preferences.edit();
+    editor.putString("usuario", correo);
+    editor.putString("contra", contra);
+    editor.putBoolean("sesion", true);
+    editor.commit();
+}
+private void recuperarPreferencias(){
+        SharedPreferences preferences=getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+        etCorreo.setText(preferences.getString("usuario" , "diego@gmail.com"));
+        etContra.setText(preferences.getString("contra" , "123"));
+}
 }

@@ -3,13 +3,19 @@ package com.example.ficha_project;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -30,10 +36,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class pasajero_principal extends AppCompatActivity {
-
+Button btnCerrar;
     private static final int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
     private static final int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
     private static final String TAG = "pasajero_principal";
+
 
     private GoogleMap mMap;
     SupportMapFragment mapFragment;
@@ -46,6 +53,18 @@ public class pasajero_principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pasajero_principal);
         setupGoogleApis();
+        btnCerrar=findViewById(R.id.btnCerrar);
+        btnCerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences = getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
+                preferences.edit().clear().commit();
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         // Toolbar
         androidx.appcompat.widget.Toolbar tb = findViewById(R.id.toolbar);
         setSupportActionBar(tb);
