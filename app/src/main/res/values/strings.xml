@@ -104,6 +104,11 @@
     <string name="Frecuente">Usuario Frecuente</string>
     <string name="Llegado">He llegado a destino</string>
     <string name="Llamar">Llamar</string>
+    <string name="Develop">Developer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Developer">TODO</string>
+    <string name="usuario">Usuario</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="password">Password</string>
 </resources>
