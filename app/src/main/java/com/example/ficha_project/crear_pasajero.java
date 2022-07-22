@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -19,6 +21,7 @@ import java.util.Map;
 public class crear_pasajero extends AppCompatActivity {
 
     EditText etNombre, etApellido, etCorreo, etContra, etFoto;
+    Button btnAgregar;
     RequestQueue requestQueue;
     private static final String URL = "http://192.168.1.95/bd_ficha/saveP.php";
 
@@ -26,6 +29,19 @@ public class crear_pasajero extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestQueue = Volley.newRequestQueue(this);
+        etNombre = (EditText) findViewById(R.id.etNombre);
+        etApellido = (EditText) findViewById(R.id.etApellido);
+        etCorreo = (EditText) findViewById(R.id.etCorreo);
+        etContra = (EditText) findViewById(R.id.etContra);
+        etFoto = (EditText) findViewById(R.id.etFoto);
+        btnAgregar = (Button)findViewById(R.id.btnAgregar);
+
+        btnAgregar.setOnClickListener(view -> {
+            //AgregarPasajero
+            String no = etNombre.getText().toString();
+            String ap = etApellido.getText().toString();
+        });
+
 
     }
     public void registrarse(View v){

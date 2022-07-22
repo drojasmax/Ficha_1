@@ -87,8 +87,17 @@
             android:minHeight="48dp"
             android:textColorHint="#757575" />
 
+        <EditText
+            android:id="@+id/etFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="@string/Foto" />
+
         <Button
-            android:id="@+id/btnRegistrarse"
+            android:id="@+id/btnAgregar"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
