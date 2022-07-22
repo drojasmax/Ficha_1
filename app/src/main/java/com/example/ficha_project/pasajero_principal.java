@@ -36,7 +36,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class pasajero_principal extends AppCompatActivity {
-Button btnCerrar;
+
     private static final int REQUEST_CODE_AUTOCOMPLETE_FROM = 1;
     private static final int REQUEST_CODE_AUTOCOMPLETE_TO = 2;
     private static final String TAG = "pasajero_principal";
@@ -53,17 +53,7 @@ Button btnCerrar;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pasajero_principal);
         setupGoogleApis();
-        btnCerrar=findViewById(R.id.btnCerrar);
-        btnCerrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences preferences = getSharedPreferences("preferenciasLogin", Context.MODE_PRIVATE);
-                preferences.edit().clear().commit();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
 
         // Toolbar
         androidx.appcompat.widget.Toolbar tb = findViewById(R.id.toolbar);

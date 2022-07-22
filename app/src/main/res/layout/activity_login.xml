@@ -18,13 +18,15 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="151dp"
-                android:layout_height="113dp"
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="109dp"
                 android:layout_marginBottom="40dp"
-                app:srcCompat="@drawable/developeru"
-                android:contentDescription="@string/Developer" />
+                android:contentDescription="@string/Ficha"
+                android:fontFamily="sans-serif-thin"
+                android:text="@string/Ficha"
+                android:textSize="96sp" />
 
             <EditText
                 android:id="@+id/etCorreo"
@@ -32,13 +34,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:autofillHints=""
                 android:backgroundTint="@android:color/darker_gray"
                 android:drawableStart="@drawable/icon_email"
                 android:ems="10"
                 android:hint="@string/usuario"
                 android:inputType="textPersonName"
-                android:paddingStart="5dp"
-                android:autofillHints="" />
+                android:paddingStart="5dp" />
 
             <EditText
                 android:id="@+id/etContra"
@@ -47,13 +49,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
+                android:autofillHints=""
                 android:backgroundTint="@android:color/darker_gray"
                 android:drawableStart="@drawable/icon_lock"
                 android:ems="10"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:paddingStart="5dp"
-                android:autofillHints="" />
+                android:paddingStart="5dp" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -62,10 +64,35 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
-                android:background="#1976d2"
+                android:background="#7B7D7D"
                 android:text="@string/iniciar_sesi_n"
                 android:textColor="#FFF"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:adjustViewBounds="false"
+                    android:cropToPadding="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/dog_in_car"
+                    android:contentDescription="TODO" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </FrameLayout>
